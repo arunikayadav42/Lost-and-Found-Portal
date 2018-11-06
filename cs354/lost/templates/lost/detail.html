@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="lost-entry">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>{{ lost.title }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> <span>{{ lost.date }}</span> <br> <span>{{ lost.location }}</span> </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>
+                    		{{ lost.description }}
+                    	</span>
+                        <br>
+                        <span>
+                    		{% if lost.picture %}
+                    		<img src="{{ lost.picture.url }}" height="100">
+                    		{% endif %}
+                    	</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            <span>
+                    		<a href="{% url "lost_edit" lost.pk %}" class="btn btn-info">Edit</a>
+                    	</span>
+                            <span>
+                    		<a href="{% url "lost_delete" lost.pk %}" class="btn btn-danger"> Delete</a>
+                    	</span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>
+{% if lost.comments.all %}
+    <h2>Comments</h2>
+    <div class="card-footer">
+    {% for comment in lost.comments.all %}
+        <p>
+            <span class="font-weight-bold">
+                {{ comment.author }}
+            </span>
+            <div class="panel panel-primary">
+  <div class="panel-body">{{ comment.text }}</div>
+</div>
+            
+        </p>
+    {% endfor %}
+</div>
+{% endif %}
+<br>
+<a href="{% url "add_comment_to_lost" lost.pk%}">Add Comment</a>
+{% endblock content %}

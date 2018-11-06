@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="found-entry">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>{{ found.title }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> <span>{{ found.date }}</span> <br> <span>{{ found.location }}</span> </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>
+                    		{{ found.description }}
+                    	</span>
+                        <br>
+                        <span>
+                    		{% if found.picture %}
+                    		<img src="{{ found.picture.url }}" height="100">
+                    		{% endif %}
+                    	</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            <span>
+                    		<a href="{% url "found_edit" found.pk %}" class="btn btn-info">Edit</a>
+                    	</span>
+                            <span>
+                    		<a href="{% url "found_delete" found.pk %}" class="btn btn-danger"> Delete</a>
+                    	</span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>
+{% if found.comments.all %}
+    <h2>Comments</h2>
+    <div class="card-footer">
+    {% for comment in found.comments.all %}
+        <p>
+            <span class="font-weight-bold">
+                {{ comment.author }}
+            </span>
+            <div class="panel panel-primary">
+  <div class="panel-body">{{ comment.text }}</div>
+</div>
+            
+        </p>
+    {% endfor %}
+</div>
+{% endif %}
+<br>
+<a href="{% url "add_comment_to_found" found.pk%}">Add Comment</a>
+{% endblock content %}
