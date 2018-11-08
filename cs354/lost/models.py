@@ -9,15 +9,16 @@ class Lost(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     description = models.TextField()
     location = models.TextField()
-    date = models.DateTimeField(auto_now_add=True, blank=True)
+    date_item_lost = models.DateTimeField(default=timezone.now)
+    date_item_registered = models.DateTimeField(auto_now_add=True)
     picture = models.ImageField(upload_to='pictures/%Y/%m/%d/', null=True,
                                 blank=True)
 
     def __str__(self):
         return self.title
 
-    # def get_absolute_url(self):
-    #     return reverse('lost_detail', args=[str(self.id)])
+    def get_absolute_url(self):
+        return reverse('lost_detail', args=[str(self.id)])
 
 
 class Comment(models.Model):

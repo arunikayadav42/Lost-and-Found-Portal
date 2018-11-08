@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>Lost & Found</title>
+    <link href="//cdn.bootcss.com/bootstrap-datetimepicker/4.17.44/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <!-- jQuery library -->
@@ -9,6 +10,7 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//cdn.bootcss.com/moment.js/2.17.1/moment.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'static/css/base.css' %}">
 	</head>
 	<body>
@@ -18,10 +20,9 @@
       <a class="navbar-brand" href="#">IIT P Lost & Found</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="#">Home</a></li>
+      <li><a href="{% url "launch_home" %}">Home</a></li>
       <li><a href="{% url "lost_list" %}">Lost</a></li>
       <li><a href="{% url "found_list" %}">Found</a></li>
-      <li><a href="#">Inventory</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

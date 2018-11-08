@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from bootstrap_datepicker_plus import DateTimePickerInput
 from django.urls import reverse_lazy
 from .models import Lost, Comment
 from .forms import CommentForm
@@ -18,8 +19,12 @@ class LostDetailView(DetailView):
 
 class LostCreateView(CreateView):
     model = Lost
+    fields = '__all__'
     template_name = "lost/create.html"
-    fields = "__all__"
+    def get_form(self):
+        form = super().get_form()
+        form.fields['date_item_lost'].widget = DateTimePickerInput()
+        return form
     success_url = reverse_lazy("lost_list")
 
 

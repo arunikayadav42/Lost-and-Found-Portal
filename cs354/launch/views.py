@@ -2,5 +2,5 @@ from django.shortcuts import render
 from django.views.generic import ListView
 
 
-class HomeView(ListView):
-	template_name = 'launch/home.html'
+def homeview(request):
+	return render(request, 'launch/home.html')

@@ -10,7 +10,8 @@
             </thead>
             <tbody>
                 <tr>
-                    <td> <span>{{ lost.date }}</span> <br> <span>{{ lost.location }}</span> </td>
+                    <td> <p>Time : <span>{{ lost.date_item_lost }}</span></p>
+                     <p>Location: <span>{{ lost.location }}</span></p></td>
                 </tr>
                 <tr>
                     <td>
@@ -52,8 +53,7 @@
             </span>
             <div class="panel panel-primary">
   <div class="panel-body">{{ comment.text }}</div>
-</div>
-            
+</div>            
         </p>
     {% endfor %}
 </div>
