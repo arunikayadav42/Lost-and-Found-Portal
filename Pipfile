@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 django = "==2.1"
+mysqlclient = "*"
+django-allauth = "*"
 
 [dev-packages]
 

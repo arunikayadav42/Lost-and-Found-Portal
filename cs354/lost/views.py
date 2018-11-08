@@ -21,6 +21,7 @@ class LostCreateView(CreateView):
     model = Lost
     fields = '__all__'
     template_name = "lost/create.html"
+    
     def get_form(self):
         form = super().get_form()
         form.fields['date_item_lost'].widget = DateTimePickerInput()
