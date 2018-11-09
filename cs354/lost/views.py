@@ -4,7 +4,9 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from bootstrap_datepicker_plus import DateTimePickerInput
 from django.urls import reverse_lazy
 from .models import Lost, Comment
+from django.core.exceptions import PermissionDenied
 from .forms import CommentForm
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 
 
 class LostListView(ListView):
@@ -17,33 +19,60 @@ class LostDetailView(DetailView):
     template_name = "lost/detail.html"
 
 
-class LostCreateView(CreateView):
+class LostCreateView(LoginRequiredMixin, CreateView):
     model = Lost
-    fields = '__all__'
+    fields = ('title', 'description', 'location', 'date_item_lost', 'picture')
     template_name = "lost/create.html"
-    
+    login_url = 'login'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
     def get_form(self):
         form = super().get_form()
         form.fields['date_item_lost'].widget = DateTimePickerInput()
         return form
+
     success_url = reverse_lazy("lost_list")
 
 
-class LostUpdateView(UpdateView):
+class LostUpdateView(LoginRequiredMixin, UpdateView):
     model = Lost
     template_name = "lost/update.html"
-    fields = ['title', 'description']
-    
+    fields = ('title', 'description', 'location', 'date_item_lost', 'picture')
+    login_url = 'login'
 
-class LostDeleteView(DeleteView):
+    def get_form(self):
+        form = super().get_form()
+        form.fields['date_item_lost'].widget = DateTimePickerInput()
+        return form
+
+    def dispatch(self, request, *args, **kwargs):
+        obj = self.get_object()
+        if obj.author != self.request.user:
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
+        
+
+class LostDeleteView(LoginRequiredMixin, DeleteView):
     model = Lost
     template_name = "lost/delete.html"
     success_url = reverse_lazy("lost_list")
+    login_url = 'login'
+    fields = "__all__"
 
+    def dispatch(self, request, *args, **kwargs):
+        obj = self.get_object()
+        if obj.author != self.request.user:
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
+        
 
 def add_comment_to_lost(request, pk):
     lost = get_object_or_404(Lost, pk=pk)
     form = CommentForm(request.POST)
+    login_url = 'login'
 
     if form.is_valid():
         comment = form.save(commit=False)
