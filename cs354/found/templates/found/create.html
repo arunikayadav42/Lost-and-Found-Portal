@@ -3,7 +3,7 @@
     <h4>
     	<form actions="" method="post" enctype="multipart/form-data">
     		{% csrf_token %}
-    		{{ form.as_table }}
+    		{{ form.as_p }}
     		<input type="submit" value="Submit">
     	</form>
     </h4>

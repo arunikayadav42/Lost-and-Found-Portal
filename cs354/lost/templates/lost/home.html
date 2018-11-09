@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div>
-      <a href="{% url "lost_create" %}" class="btn btn-danger" ><span class="glyphicon glyphicon-plus">Register Item</span></a>
+      <a href="{% url "lost_create" %}" class="btn btn-danger" cellpadding="10px"><span class="glyphicon glyphicon-plus"><b> Register Item</b></span></a>
 </div>
 <div class="table-responsive">
    <table class="table">
@@ -22,6 +22,9 @@
             {{ item.title }}
          </a>
       </h2>
+   </div>
+   <div class="date">
+                {{ item.date_item_registered }}
    </div>
    <a href="{% url 'lost_detail' item.pk %}"> Comments: {{ item.comments.count }} </a>
    </td>

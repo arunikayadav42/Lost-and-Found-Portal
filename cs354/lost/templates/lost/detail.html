@@ -1,63 +1,41 @@
 {% extends "base.html" %}
+{% block title %}{{lost.title}}{% endblock title %}
 {% block content %}
-<div class="lost-entry">
-    <div class="table-responsive">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>{{ lost.title }}</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td> <p>Time : <span>{{ lost.date_item_lost }}</span></p>
-                     <p>Location: <span>{{ lost.location }}</span></p></td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>
-                    		{{ lost.description }}
-                    	</span>
-                        <br>
-                        <span>
-                    		{% if lost.picture %}
-                    		<img src="{{ lost.picture.url }}" height="100">
-                    		{% endif %}
-                    	</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p>
-                            <span>
-                    		<a href="{% url "lost_edit" lost.pk %}" class="btn btn-info">Edit</a>
-                    	</span>
-                            <span>
-                    		<a href="{% url "lost_delete" lost.pk %}" class="btn btn-danger"> Delete</a>
-                    	</span>
-                        </p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+<div class="card">
+    <div class="card-header">
+        <span class="font-weight-bold"><h1>{{ lost.title }}</h1></span>
+        <span class="text-muted">by {{ lost.author }} |
+{{ lost.date_item_lost }}</span>
     </div>
+    <hr>
+    <div class="card-body">
+        <h4>Item Description :</h4>
+        <br>
+        <div class="panel panel-primary">
+            <div class="panel-body">{{lost.description}}</div>
+        </div>
+    </div>
+    <div class="card-body">
+        {% if lost.picture %}<img src="{{ lost.picture.url }}" height="100">{% endif %}
 </div>
-<hr>
-{% if lost.comments.all %}
-    <h2>Comments</h2>
-    <div class="card-footer">
-    {% for comment in lost.comments.all %}
-        <p>
-            <span class="font-weight-bold">
+        <div class="card-footer text-center text-muted">
+            <a href="{% url "lost_edit" lost.pk %}" class="btn btn-info">Edit</a> | <a href="{% url "lost_delete" lost.pk %}" class="btn btn-danger"> Delete</a>
+        </div>
+        {% if lost.comments.all %}
+        <h2>Comments</h2>
+        <div class="card-footer">
+            {% for comment in lost.comments.all %}
+            <p>
+                <span class="font-weight-bold">
                 {{ comment.author }}
             </span>
-            <div class="panel panel-primary">
-  <div class="panel-body">{{ comment.text }}</div>
-</div>            
-        </p>
-    {% endfor %}
-</div>
-{% endif %}
-<br>
-<a href="{% url "add_comment_to_lost" lost.pk%}">Add Comment</a>
-{% endblock content %}
+                <div class="panel panel-primary">
+                    <div class="panel-body">{{ comment.text }}</div>
+                </div>
+            </p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <br>
+        <a href="{% url "add_comment_to_lost" lost.pk%}">Add Comment</a>
+        {% endblock content %}

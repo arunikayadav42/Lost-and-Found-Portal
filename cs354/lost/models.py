@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model
 
 class Lost(models.Model):
     title = models.CharField(max_length=255)
-    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     description = models.TextField()
     location = models.TextField()
     date_item_lost = models.DateTimeField(default=timezone.now)
@@ -18,7 +18,7 @@ class Lost(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('lost_detail', args=[str(self.id)])
+        return reverse('lost_detail', args=[str(self.pk)])
 
 
 class Comment(models.Model):
@@ -34,7 +34,7 @@ class Comment(models.Model):
         self.save()
 
     def get_absolute_url(self):
-        return reverse('lost_detail', args=[str(self.id)])
+        return reverse('lost_detail', args=[str(self.pk)])
 
     def __str__(self):
         return self.text
