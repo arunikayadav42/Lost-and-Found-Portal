@@ -22,7 +22,7 @@ class FoundDetailView(DetailView):
 class FoundCreateView(LoginRequiredMixin, CreateView):
     model = Found
     template_name = "found/create.html"
-    fields = ('title', 'description', 'location', 'date', 'picture')
+    fields = ('title', 'description', 'location', 'date_item_lost', 'picture')
     success_url = reverse_lazy("found_list")
     login_url = 'login'
 
@@ -62,7 +62,7 @@ class FoundDeleteView(LoginRequiredMixin, DeleteView):
         return super().dispatch(request, *args, **kwargs)
         
 
-def add_comment_to_found(LoginRequiredMixin, request, pk):
+def add_comment_to_found(request, pk):
     found = get_object_or_404(Found, pk=pk)
     form = CommentForm(request.POST)
     login_url = 'login'

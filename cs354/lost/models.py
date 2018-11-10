@@ -13,6 +13,8 @@ class Lost(models.Model):
     date_item_registered = models.DateTimeField(auto_now_add=True)
     picture = models.ImageField(upload_to='pictures/%Y/%m/%d/', null=True,
                                 blank=True)
+    found_status = models.CharField(max_length=2, default='NF')  
+    # NF means not found
 
     def __str__(self):
         return self.title
