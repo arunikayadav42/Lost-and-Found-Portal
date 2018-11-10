@@ -70,6 +70,7 @@ def add_comment_to_found(LoginRequiredMixin, request, pk):
     if form.is_valid():
         comment = form.save(commit=False)
         comment.found = found
+        comment.author = request.user
         comment.save()
         return redirect('found_detail', pk=found.pk)
     else:

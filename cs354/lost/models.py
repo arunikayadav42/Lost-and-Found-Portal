@@ -21,6 +21,11 @@ class Lost(models.Model):
         return reverse('lost_detail', args=[str(self.pk)])
 
 
+class PostPicture(models.Model):
+    picture = models.ImageField(upload_to='pictures/%Y-%m-%d/', null=True)
+    postid = models.ForeignKey('Lost', on_delete=models.CASCADE)
+
+
 class Comment(models.Model):
     lost = models.ForeignKey(Lost, on_delete=models.CASCADE, 
                              related_name="comments")

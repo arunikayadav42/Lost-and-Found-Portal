@@ -77,6 +77,7 @@ def add_comment_to_lost(request, pk):
     if form.is_valid():
         comment = form.save(commit=False)
         comment.lost = lost
+        comment.author = request.user
         comment.save()
         return redirect('lost_detail', pk=lost.pk)
     else:
