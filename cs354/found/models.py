@@ -9,9 +9,13 @@ class Found(models.Model):
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     description = models.TextField()
     location = models.TextField()
-    date = models.DateTimeField(auto_now_add=True, blank=True)
+    date_item_found = models.DateTimeField(default=timezone.now)
+    date_item_registered = models.DateTimeField(auto_now_add=True)
     picture = models.ImageField(upload_to='pictures/%Y/%m/%d/', null=True,
                                 blank=True)
+    claimed = models.CharField(max_length=2, default='NC')
+
+    # NF means not claimed
 
     def __str__(self):
         return self.title

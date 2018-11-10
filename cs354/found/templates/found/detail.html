@@ -10,30 +10,30 @@
             </thead>
             <tbody>
                 <tr>
-                    <td> <span>{{ found.date }}</span> <br> <span>{{ found.location }}</span> </td>
+                    <td> <span>{{ found.date_item_found }}</span> <br> <span>{{ found.location }}</span> </td>
                 </tr>
                 <tr>
                     <td>
                         <span>
-                    		{{ found.description }}
-                    	</span>
+                            {{ found.description }}
+                        </span>
                         <br>
                         <span>
-                    		{% if found.picture %}
-                    		<img src="{{ found.picture.url }}" height="100">
-                    		{% endif %}
-                    	</span>
+                            {% if found.picture %}
+                            <img src="{{ found.picture.url }}" height="100">
+                            {% endif %}
+                        </span>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <p>
                             <span>
-                    		<a href="{% url "found_edit" found.pk %}" class="btn btn-info">Edit</a>
-                    	</span>
+                            <a href="{% url "found_edit" found.pk %}" class="btn btn-info">Edit</a>
+                        </span>
                             <span>
-                    		<a href="{% url "found_delete" found.pk %}" class="btn btn-danger"> Delete</a>
-                    	</span>
+                            <a href="{% url "found_delete" found.pk %}" class="btn btn-danger"> Delete</a>
+                        </span>
                         </p>
                     </td>
                 </tr>
