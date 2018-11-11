@@ -31,6 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.sites',
+    'django_comments_xtd',
+    'django_comments',
+    'my_comments_app.apps.MyCommentsAppConfig',
     'users.apps.UsersConfig',
     'launch.apps.LaunchConfig',
     'lost.apps.LostConfig',
@@ -140,3 +144,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # new
 # EMAIL_HOST_PASSWORD = 'sendgrid_password'
 # EMAIL_PORT =
 # EMAIL_USE_TLS = True
+
+SITE_ID = 2
+COMMENTS_APP = 'my_comments_app'
+COMMENTS_XTD_MAX_THREAD_LEVEL = 2
+COMMENTS_XTD_CONFIRM_EMAIL = True
+COMMENTS_HIDE_REMOVED = True

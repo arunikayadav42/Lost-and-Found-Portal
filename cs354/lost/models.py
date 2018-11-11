@@ -7,7 +7,8 @@ from django.contrib.auth import get_user_model
 class Lost(models.Model):
     title = models.CharField(max_length=255)
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
-    description = models.TextField()
+    color = models.TextField(blank=True)
+    brand = models.TextField(blank=True)
     location = models.TextField()
     date_item_lost = models.DateTimeField(default=timezone.now)
     date_item_registered = models.DateTimeField(auto_now_add=True)

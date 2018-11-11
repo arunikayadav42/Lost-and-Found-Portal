@@ -11,4 +11,5 @@ urlpatterns = [
     path('', include('launch.urls'), name='home'),
     path('lost/', include('lost.urls')),
     path('found/', include('found.urls')),
+    path('comments/', include('django_comments_xtd.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
