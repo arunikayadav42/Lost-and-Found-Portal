@@ -21,7 +21,8 @@ class LostDetailView(DetailView):
 
 class LostCreateView(LoginRequiredMixin, CreateView):
     model = Lost
-    fields = ('title', 'description', 'location', 'date_item_lost', 'picture')
+    fields = ('title', 'color', 'brand', 'location', 'date_item_lost', 
+              'picture')
     template_name = "lost/create.html"
     login_url = 'login'
 
@@ -40,7 +41,7 @@ class LostCreateView(LoginRequiredMixin, CreateView):
 class LostUpdateView(LoginRequiredMixin, UpdateView):
     model = Lost
     template_name = "lost/update.html"
-    fields = ('title', 'description', 'location', 'date_item_lost', 'picture')
+    fields = ('title', 'color', 'brand', 'location', 'date_item_lost', 'picture')
     login_url = 'login'
 
     def get_form(self):

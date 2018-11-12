@@ -146,7 +146,15 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # new
 # EMAIL_USE_TLS = True
 
 SITE_ID = 2
-COMMENTS_APP = 'my_comments_app'
+COMMENTS_APP = 'django_comments_xtd'
 COMMENTS_XTD_MAX_THREAD_LEVEL = 2
-COMMENTS_XTD_CONFIRM_EMAIL = True
+COMMENTS_XTD_CONFIRM_EMAIL = False
 COMMENTS_HIDE_REMOVED = True
+COMMENTS_XTD_LIST_ORDER = ('-thread_id', 'order')
+# To help obfuscating comments before they are sent for confirmation.
+# COMMENTS_XTD_SALT = (b"Timendi causa est nescire. "
+# b"Aequam memento rebus in arduis servare mentem.")
+# Source mail address used for notifications.
+# COMMENTS_XTD_FROM_EMAIL = "noreply@example.com"
+# Contact mail address to show in messages.
+# COMMENTS_XTD_CONTACT_EMAIL = "helpdesk@example.com"

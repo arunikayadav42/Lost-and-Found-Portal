@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load comments %}
 {% block content %}
 <div>
       <a href="{% url "lost_create" %}" class="btn btn-danger" cellpadding="10px"><span class="glyphicon glyphicon-plus"><b> Register Item</b></span></a>
@@ -26,7 +27,12 @@
    <div class="date">
                 {{ item.date_item_registered }}
    </div>
-   <a href="{% url 'lost_detail' item.pk %}"> Comments: {{ item.comments.count }} </a>
+   <p class="date">
+      {% if comment_count %}
+          &sdot;&nbsp;{{ comment_count }} 
+      comments
+      {% endif %}
+   </p>
    </td>
 </tr>
 {% endfor %}
