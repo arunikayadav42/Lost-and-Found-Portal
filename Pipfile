@@ -7,6 +7,9 @@ name = "pypi"
 django = "==2.1"
 mysqlclient = "*"
 django-allauth = "*"
+django-bootstrap-datepicker-plus = "*"
+djangorestframework = "*"
+django-contrib-comments = "*"
 
 [dev-packages]
 

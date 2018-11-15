@@ -21,28 +21,30 @@
         <div class="card-footer text-center text-muted">
             <a href="{% url "lost_edit" lost.pk %}" class="btn btn-info">Edit</a> | <a href="{% url "lost_delete" lost.pk %}" class="btn btn-danger"> Delete</a>
         </div>
-        <div>
-            {% get_comment_count for object as comment_count%}
-            <div class="text-center">
-                <a href="{% url "lost_list" %}">
-                   Back to the list of lost items
-               </a>
-                {{ comment_count}} Comments have been posted
-            </div>
-        </div>
+
         
-        {% if comment_count %}
-        <hr>
-        <ul class="media-list">
-            {% render_xtdcomment_tree for object %}
-        </ul>
-        {% endif %}
-        <div class="comment">
-            <h4 class="text-center">
-                   Your Comment
-                </h4>
-            <div class="well">
-                {% render_comment_form for object %}
-            </div>
+    <div>
+        {% get_comment_count for object as comment_count%}
+        <div class="text-center">
+            <a href="{% url "lost_list" %}">
+               Back to the list of lost items
+           </a>
+            {{ comment_count}} Comments have been posted
         </div>
+    </div>
+    
+    {% if comment_count %}
+    <hr>
+    <ul class="media-list">
+        {% render_xtdcomment_tree for object %}
+    </ul>
+    {% endif %}
+    <div class="comment">
+        <h4 class="text-center">
+               Your Comment
+            </h4>
+        <div class="well">
+            {% render_comment_form for object %}
+        </div>
+    </div>
         {% endblock content %}

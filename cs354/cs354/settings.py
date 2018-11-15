@@ -147,6 +147,10 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # new
 
 SITE_ID = 2
 COMMENTS_APP = 'django_comments_xtd'
+
+COMMENTS_XTD_MODEL = 'my_comments_app.models.MyComment'
+COMMENTS_XTD_FORM_CLASS = 'my_comments_app.forms.MyCommentForm'
+
 COMMENTS_XTD_MAX_THREAD_LEVEL = 2
 COMMENTS_XTD_CONFIRM_EMAIL = False
 COMMENTS_HIDE_REMOVED = True

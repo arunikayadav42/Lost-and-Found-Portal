@@ -1,0 +1,1162 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Dat",
+				"DateTimeField"
+			],
+			[
+				"get",
+				"get_user_model"
+			],
+			[
+				"re",
+				"request"
+			],
+			[
+				"aut",
+				"auth"
+			],
+			[
+				"DateTi",
+				"DateTimePickerInput\t(views.py)"
+			],
+			[
+				"auth",
+				"author\t(views.py)"
+			],
+			[
+				"mode",
+				"models"
+			],
+			[
+				"Login",
+				"LoginRequiredMixin"
+			],
+			[
+				"panel",
+				"panel-body"
+			],
+			[
+				"end",
+				"endif"
+			],
+			[
+				"pi",
+				"picture\t(models.py)"
+			],
+			[
+				"title",
+				"title\tTag"
+			],
+			[
+				"Fo",
+				"Found\t(views.py)"
+			],
+			[
+				"Date",
+				"DateTimePickerInput"
+			],
+			[
+				"User",
+				"UserPassesTestMixin\tclass"
+			],
+			[
+				"Logi",
+				"LoginRequiredMixin"
+			],
+			[
+				"Log",
+				"LoginRequiredMixin"
+			],
+			[
+				"na",
+				"navbar"
+			],
+			[
+				"reverse",
+				"reverse_lazy\tfunction"
+			],
+			[
+				"C",
+				"CustomUserCreationForm〔class〕"
+			],
+			[
+				"Sign",
+				"SignUpView"
+			],
+			[
+				"url",
+				"urlpatterns\t(urls.py)"
+			],
+			[
+				"Cus",
+				"CustomUser"
+			],
+			[
+				"Custo",
+				"CustomUserChangeForm"
+			],
+			[
+				"Custom",
+				"CustomUserCreationForm"
+			],
+			[
+				"Cu",
+				"CustomUserChangeForm\tclass"
+			],
+			[
+				"user",
+				"UserCreationForm\tclass"
+			],
+			[
+				"CustomUserC",
+				"CustomUserChangeForm"
+			],
+			[
+				"Em",
+				"EmailField\tclass"
+			],
+			[
+				"fo",
+				"forms"
+			],
+			[
+				"revers",
+				"reverse\t(models.py)"
+			],
+			[
+				"form",
+				"form_class\tstatement"
+			],
+			[
+				"htm",
+				"base.htm"
+			],
+			[
+				"D",
+				"DetailView\tclass"
+			],
+			[
+				"asser",
+				"assertTemplateUsed"
+			],
+			[
+				"assert",
+				"assertContains"
+			],
+			[
+				"no",
+				"no_reponse"
+			],
+			[
+				"get_us",
+				"get_user_model\tfunction"
+			],
+			[
+				"a",
+				"auth\tmodule"
+			],
+			[
+				"dja",
+				"django\tmodule"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"hea",
+				"header\tTag"
+			],
+			[
+				"Ca",
+				"CASCADE\tfunction"
+			],
+			[
+				"ch",
+				"CharField\tclass"
+			],
+			[
+				"cl",
+				"client"
+			],
+			[
+				"mo",
+				"models〔module〕"
+			],
+			[
+				"Home",
+				"HomePageView\t(views.py)"
+			],
+			[
+				"ur",
+				"urls\tmodule"
+			],
+			[
+				"co",
+				"contrib\tmodule"
+			],
+			[
+				"cont",
+				"context_object_name\tstatement"
+			],
+			[
+				"u",
+				"ul\tTag"
+			],
+			[
+				"templ",
+				"template_name\tstatement"
+			],
+			[
+				"model",
+				"model\tstatement"
+			],
+			[
+				"l",
+				"ListView\tclass"
+			],
+			[
+				"pa",
+				"pages_proje​‌​"
+			],
+			[
+				"s",
+				"status_code"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"he",
+				"header\tTag"
+			],
+			[
+				"Abo",
+				"AboutPageView"
+			],
+			[
+				"A",
+				"AboutPageView\t(views.py)"
+			],
+			[
+				"template",
+				"template_name"
+			],
+			[
+				"hom",
+				"homePageView"
+			],
+			[
+				"if",
+				"ifmain\tif __name__ == '__main__'"
+			],
+			[
+				"cla",
+				"class\tNew Class"
+			],
+			[
+				"mi",
+				"minheapify"
+			],
+			[
+				"inte",
+				"Integer"
+			],
+			[
+				"ne",
+				"nextInt"
+			],
+			[
+				"next",
+				"nextInt"
+			],
+			[
+				"maxi",
+				"maxproductcutting"
+			],
+			[
+				"max",
+				"maxproductcutting"
+			],
+			[
+				"mnps",
+				"mnpsutil"
+			],
+			[
+				"int",
+				"Integer"
+			],
+			[
+				"pr",
+				"println"
+			],
+			[
+				"null",
+				"null"
+			],
+			[
+				"st",
+				"static"
+			],
+			[
+				"p",
+				"push"
+			],
+			[
+				"sq",
+				"squaremania"
+			],
+			[
+				"dist",
+				"dist"
+			],
+			[
+				"print",
+				"printkdown"
+			],
+			[
+				"r",
+				"root"
+			],
+			[
+				"heap",
+				"heapsort"
+			],
+			[
+				"pop",
+				"popleft"
+			],
+			[
+				"de",
+				"detectsize"
+			],
+			[
+				"path",
+				"pathexistance"
+			],
+			[
+				"f",
+				"floydwarshall"
+			],
+			[
+				"g",
+				"graph"
+			],
+			[
+				"in",
+				"intnsertatend"
+			],
+			[
+				"L",
+				"LinkedList"
+			],
+			[
+				"ma",
+				"matrixList"
+			],
+			[
+				"cur",
+				"cureven"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"ANF: Delete Current File"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"install packa",
+				"Package Control: Install Package"
+			],
+			[
+				"git",
+				"Git: Add Remote"
+			],
+			[
+				"list pack",
+				"Package Control: List Packages"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"list ",
+				"Terminus: List Shells"
+			],
+			[
+				"list pac",
+				"Package Control: List Packages"
+			],
+			[
+				"list packages",
+				"Package Control: List Unmanaged Packages"
+			],
+			[
+				"disabe",
+				"Package Control: Disable Package"
+			],
+			[
+				"list pak",
+				"Package Control: List Packages"
+			],
+			[
+				"list packa",
+				"Package Control: List Packages"
+			],
+			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
+				"termius thme",
+				"Terminus Utilities: Select Theme"
+			],
+			[
+				"list sh",
+				"Terminus: List Shells"
+			],
+			[
+				"terminus list",
+				"Terminus: List Shells"
+			],
+			[
+				"termins li",
+				"Terminus: List Shells"
+			],
+			[
+				"terminus theme",
+				"Terminus Utilities: Select Theme"
+			],
+			[
+				"theme terminus",
+				"Terminus Utilities: Select Theme"
+			],
+			[
+				"resource ",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"glue",
+				"Glue - Launch"
+			],
+			[
+				"terminis",
+				"Terminus Utilities: Select Theme"
+			],
+			[
+				"da ui",
+				"DA UI: Color Scheme Settings"
+			],
+			[
+				"color scheme",
+				"UI: Select Color Scheme"
+			],
+			[
+				"materia",
+				"Material Theme: Activate theme"
+			],
+			[
+				"da ui ",
+				"DA UI: Select Skin"
+			],
+			[
+				"a file ",
+				"A File Icon: Environment"
+			],
+			[
+				"DA UI",
+				"DA UI: General Settings"
+			],
+			[
+				"terminus",
+				"Terminus: Open Default Shell in View"
+			],
+			[
+				"colr",
+				"Color Picker"
+			],
+			[
+				"resource",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"terminus utilities",
+				"Terminus Utilities: Select Theme"
+			],
+			[
+				"remove pa",
+				"Package Control: Remove Package"
+			],
+			[
+				"Django:",
+				"Django: Shell"
+			],
+			[
+				"resouce",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"lint",
+				"SublimeLint: Error Report (Open Files)"
+			],
+			[
+				"colorscheme",
+				"UI: Select Color Scheme"
+			],
+			[
+				"disable ",
+				"Package Control: Disable Package"
+			],
+			[
+				"list pa",
+				"Package Control: List Packages"
+			],
+			[
+				"afile",
+				"A File Icon: Clean Patches"
+			],
+			[
+				"terminus l",
+				"Terminus: List Shells"
+			],
+			[
+				"mate",
+				"Material Theme: Activate theme"
+			],
+			[
+				"theme",
+				"Material Theme: Advanced configuration"
+			],
+			[
+				"sidebar",
+				"Side Bar: Reveal File"
+			],
+			[
+				"mater",
+				"Material Theme: Configuration"
+			],
+			[
+				"packagel",
+				"Package Control: List Packages"
+			],
+			[
+				"enable packa",
+				"Package Control: Enable Package"
+			],
+			[
+				"disab",
+				"Package Control: Disable Package"
+			],
+			[
+				"material",
+				"Material Theme: Configuration"
+			],
+			[
+				"resouv",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"package resouce",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"pep8",
+				"User: Python PEP8 Autoformat"
+			],
+			[
+				"packae",
+				"Preferences: Browse Packages"
+			],
+			[
+				"disable pack",
+				"Package Control: Disable Package"
+			],
+			[
+				"color ",
+				"UI: Select Color Scheme"
+			],
+			[
+				"ma",
+				"Material Theme: Configuration"
+			],
+			[
+				"m",
+				"Material Theme: Configuration"
+			],
+			[
+				"mat",
+				"Material Theme: Configuration"
+			],
+			[
+				"terminus lis",
+				"Terminus: List Shells"
+			],
+			[
+				"color sch",
+				"UI: Select Color Scheme"
+			],
+			[
+				"pa",
+				"Package Control: List Packages"
+			],
+			[
+				"color sc",
+				"UI: Select Color Scheme"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"sublimeLi",
+				"SublimeLinter: Toggle Highlights"
+			],
+			[
+				"ep8",
+				"AutoPEP8: Format Code"
+			],
+			[
+				"packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"gitgutt",
+				"Preferences: GitGutter Settings"
+			],
+			[
+				"terminus ",
+				"Terminus: List Shells"
+			],
+			[
+				"tab ",
+				"Preferences: Terminal Key Bindings – Default"
+			],
+			[
+				"key",
+				"Preferences: Key Bindings"
+			],
+			[
+				"aut",
+				"AutoPEP8: Format Code"
+			],
+			[
+				"auto",
+				"AutoPEP8: Format Code"
+			],
+			[
+				"spacing",
+				"Preferences: Package Control Settings – Default"
+			],
+			[
+				"linter",
+				"Preferences: SublimeLint Settings – User"
+			],
+			[
+				"pep",
+				"Preferences: AutoPep8 Settings – Default"
+			],
+			[
+				"python",
+				"Set Syntax: Python"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"insall",
+				"Package Control: Install Package"
+			],
+			[
+				"prefer",
+				"Preferences: Terminus Key Bindings"
+			],
+			[
+				"TERMIN",
+				"Preferences: Terminus Key Bindings"
+			],
+			[
+				"TERMINUS PANEL",
+				"Terminus: Toggle Panel"
+			],
+			[
+				"color shcme",
+				"UI: Select Color Scheme"
+			],
+			[
+				"color sche",
+				"UI: Select Color Scheme"
+			],
+			[
+				"color shceme",
+				"Preferences: Terminal View: Color Scheme"
+			],
+			[
+				"restor",
+				"Origami: Restore Saved Layout"
+			],
+			[
+				"resotre",
+				"Origami: Restore Saved Layout"
+			],
+			[
+				"origamire",
+				"Origami: Restore Saved Layout"
+			],
+			[
+				"origami",
+				"Origami: Save Current Layout"
+			],
+			[
+				"origami auto zoom on ",
+				"Origami: Zoom/Unzoom Current Pane (Toggle Zoom)"
+			],
+			[
+				"colorsche",
+				"UI: Select Color Scheme"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"terminal",
+				"Terminal View: Open Bash Terminal"
+			],
+			[
+				"pane",
+				"Terminus: Toggle Panel"
+			],
+			[
+				"termin",
+				"Terminus Utilities: Select Theme"
+			],
+			[
+				"termi",
+				"Terminus Utilities: Select Theme"
+			],
+			[
+				"termius col",
+				"Preferences: Terminus Command Palette"
+			],
+			[
+				"termins",
+				"Terminus Utilities: Select Theme"
+			],
+			[
+				"color shc",
+				"Preferences: Terminal View: Color Scheme"
+			],
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"ter",
+				"Terminality: Browse Commands..."
+			],
+			[
+				"termna",
+				"Terminal View: Open Bash Terminal"
+			],
+			[
+				"term",
+				"Terminality: Browse Commands..."
+			],
+			[
+				"temr",
+				"Terminal: Open"
+			],
+			[
+				"them",
+				"Material Theme: Activate theme"
+			],
+			[
+				"color",
+				"Color Picker"
+			],
+			[
+				"sublimeREPL",
+				"SublimeLint: Error Report (Open Files)"
+			],
+			[
+				"emmete",
+				"Emmet: Expand Abbreviation"
+			],
+			[
+				"side",
+				"Package Control: Satisfy Dependencies"
+			],
+			[
+				"sideba",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"termina",
+				"Terminal: Open"
+			],
+			[
+				"install p",
+				"Package Control: Install Package"
+			],
+			[
+				"shell",
+				"Shell Exec: Open"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"shell exec",
+				"Shell Exec: Open"
+			],
+			[
+				"shel",
+				"Shell Exec: Open"
+			],
+			[
+				"shell e",
+				"Shell Exec: Open"
+			],
+			[
+				"glue ",
+				"Glue - Launch"
+			],
+			[
+				"glu",
+				"Glue - Launch"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 184.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/mayank/Desktop/CS354/cs354/cs354/settings.py",
+		"/home/mayank/Desktop/CS354/cs354/lost/models.py",
+		"/home/mayank/Desktop/CS354/cs354/lost/admin.py",
+		"/home/mayank/Desktop/CS354/cs354/users/models.py",
+		"/home/mayank/Desktop/CS354/cs354/lost/forms.py",
+		"/home/mayank/train.py",
+		"/home/mayank/Desktop/CS354/cs354/found/templates/found/detail.html",
+		"/home/mayank/Desktop/CS354/cs354/lost/views.py",
+		"/home/mayank/Desktop/CS354/cs354/found/models.py",
+		"/home/mayank/Desktop/CS354/cs354/found/forms.py",
+		"/home/mayank/Desktop/CS354/cs354/lost/templates/lost/create.html",
+		"/home/mayank/Desktop/CS354/cs354/lost/templates/lost/detail.html",
+		"/home/mayank/Desktop/CS354/cs354/found/views.py",
+		"/home/mayank/Desktop/CS354/cs354/found/templates/found/home.html",
+		"/home/mayank/Desktop/django-photologue-2.2/photologue/models.py",
+		"/home/mayank/Desktop/CS354/cs354/lost/templates/lost/update.html",
+		"/home/mayank/Desktop/CS354/cs354/lost/templates/lost/home.html",
+		"/home/mayank/Desktop/CS354/cs354/templates/base.html",
+		"/home/mayank/Desktop/CS354/cs354/templates/registration/password_reset_form.html",
+		"/home/mayank/Desktop/CS354/cs354/templates/registration/login.html",
+		"/home/mayank/Desktop/CS354/cs354/templates/registration/password_reset_done.html",
+		"/home/mayank/Desktop/CS354/cs354/templates/registration/password_reset_confirm.html",
+		"/home/mayank/Desktop/CS354/cs354/templates/registration/password_reset_complete.html",
+		"/home/mayank/Desktop/CS354/cs354/cs354/urls.py",
+		"/home/mayank/Desktop/CS354/cs354/found/templates/found/update.html",
+		"/home/mayank/Desktop/CS354/cs354/found/templates/found/create.html",
+		"/home/mayank/Desktop/CS354/cs354/found/templates/found/add_comment_to_found.html",
+		"/home/mayank/Desktop/CS354/cs354/lost/templates/lost/add_comment_to_lost.html",
+		"/home/mayank/Desktop/CS354/cs354/templates/registration/password_change_done.html",
+		"/home/mayank/Desktop/CS354/cs354/templates/registration/password_change_form.html",
+		"/home/mayank/Desktop/DBLAB_Project_Book_Renting_and_Sharing/DBLAB.sql",
+		"/home/mayank/Desktop/CS354/cs354/users/views.py",
+		"/home/mayank/Desktop/CS354/cs354/users/admin.py",
+		"/home/mayank/Desktop/CS354/cs354/users/urls.py",
+		"/home/mayank/Desktop/CS354/cs354/templates/signup.html",
+		"/home/mayank/Desktop/CS354/cs354/launch/templates/launch/home.html",
+		"/home/mayank/Desktop/CS354/cs354/users/forms.py",
+		"/home/mayank/Desktop/CS354/cs354/found/urls.py",
+		"/home/mayank/CS354/cs354/cs354/urls.py",
+		"/home/mayank/CS354/cs354/cs354/settings.py",
+		"/home/mayank/CS354/cs354/lost/models.py",
+		"/home/mayank/CS354/cs354/lost/views.py",
+		"/home/mayank/CS354/cs354/lost/urls.py",
+		"/home/mayank/CS354/cs354/lost/templates/lost/update.html",
+		"/home/mayank/CS354/cs354/lost/templates/lost/create.html",
+		"/home/mayank/CS354/cs354/lost/admin.py",
+		"/home/mayank/CS354/cs354/lost/templates/lost/detail.html",
+		"/home/mayank/CS354/cs354/lost/templates/lost/home.html",
+		"/home/mayank/CS354/cs354/templates/base.html",
+		"/home/mayank/CS354/cs354/templates/registration/login.html",
+		"/home/mayank/CS354/cs354/users/admin.py",
+		"/home/mayank/CS354/cs354/users/models.py",
+		"/home/mayank/CS354/cs354/users/forms.py",
+		"/home/mayank/CS354/cs354/lost/forms.py",
+		"/home/mayank/Desktop/DBLAB.sql",
+		"/home/mayank/CS354/cs354/static/css/base.css",
+		"/home/mayank/Desktop/Lab11/sort.asm",
+		"/home/mayank/CS354/cs354/lost/templates/lost/delete.html",
+		"/home/mayank/blog/blog_project/blog/templates/blog/home.html",
+		"/home/mayank/blog/blog_project/blog/views.py",
+		"/home/mayank/code/java/Converttoincreasing.java",
+		"/home/mayank/code/java/ClosestPalindrome.java",
+		"/home/mayank/blog/blog_project/blog/urls.py",
+		"/home/mayank/blog/blog_project/blog/tests.py",
+		"/home/mayank/blog/blog_project/blog/templates/blog/post_detail.html",
+		"/home/mayank/blog/blog_project/blog/models.py",
+		"/home/mayank/blog/blog_project/blog_project/settings.py",
+		"/home/mayank/blog/blog_project/blog/static/css/base.css",
+		"/home/mayank/blog/blog_project/blog/templates/blog/base.html",
+		"/home/mayank/mb/mb_project/manage.py",
+		"/home/mayank/blog/blog_project/blog/admin.py",
+		"/home/mayank/blog/blog_project/manage.py",
+		"/home/mayank/blog/blog_project/blog_project/urls.py",
+		"/home/mayank/mb/mb_project/posts/models.py",
+		"/home/mayank/mb/mb_project/posts/tests.py",
+		"/home/mayank/mb/mb_project/mb_project/settings.py",
+		"/home/mayank/mb/mb_project/Procfile",
+		"/home/mayank/Desktop/makingGitReposViaCommandLine",
+		"/home/mayank/.config/sublime-text-3/Packages/Jedi - Python autocompletion/sublime_jedi/completion.py",
+		"/home/mayank/mb/mb_project/mb_project/urls.py",
+		"/home/mayank/mb/mb_project/posts/urls.py",
+		"/home/mayank/mb/mb_project/posts/templates/home.html",
+		"/home/mayank/mb/mb_project/posts/views.py",
+		"/home/mayank/mb/mb_project/db.sqlite3",
+		"/home/mayank/mb/mb_project/posts/admin.py",
+		"/home/mayank/.config/sublime-text-3/Packages/User/SublimeCodeIntel.sublime-settings",
+		"/home/mayank/.config/sublime-text-3/Packages/SublimeCodeIntel/SublimeCodeIntel.py",
+		"/home/mayank/code/java/IndexofFirstOne.java",
+		"/home/mayank/django/trialproject/trialproject/settings.py",
+		"/home/mayank/django/trialproject/Procfile",
+		"/home/mayank/django/trialproject/debugfile.txt",
+		"/home/mayank/django/trialproject/pages/views.py",
+		"/home/mayank/django/trialproject/pages/templates/pages/home.html",
+		"/home/mayank/.config/sublime-text-3/Packages/Terminus/themes/atom.json",
+		"/home/mayank/.config/sublime-text-3/Packages/Terminus/Terminus.sublime-color-scheme",
+		"/home/mayank/django/trialproject/pages/urls.py",
+		"/home/mayank/django/trialproject/pages/tests.py",
+		"/home/mayank/django/trialproject/pages/templates/pages/base.html",
+		"/home/mayank/django/trialproject/pages/templates/pages/about.html",
+		"/home/mayank/.config/sublime-text-3/Packages/Material Theme/Material-Theme-Darker.sublime-theme",
+		"/home/mayank/django/trialproject/pages/__init__.py",
+		"/home/mayank/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/mayank/.config/sublime-text-3/Packages/Material Theme/Preferences.sublime-settings",
+		"/home/mayank/.config/sublime-text-3/Packages/Monokai Extended/Monokai Extended.tmTheme",
+		"/home/mayank/.config/sublime-text-3/Packages/Theme - Default/Widget - Default.sublime-settings",
+		"/home/mayank/django/trialproject/trialproject/urls.py",
+		"/home/mayank/.config/sublime-text-3/Packages/Terminus/Default.sublime-keymap",
+		"/home/mayank/.config/sublime-text-3/Packages/Terminus/Default (Linux).sublime-keymap",
+		"/home/mayank/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/mayank/trialproject/trialproject/settings.py",
+		"/home/mayank/trialproject/pages/apps.py",
+		"/home/mayank/trialproject/pages/models.py",
+		"/home/mayank/trialproject/pages/tests.py",
+		"/home/mayank/trialproject/pages/views.py",
+		"/home/mayank/Desktop/8086/prac.asm",
+		"/home/mayank/code/java/GFG.java",
+		"/home/mayank/code/java/Starsuper.java",
+		"/home/mayank/code/java/GFG.class",
+		"/home/mayank/.config/sublime-text-3/Packages/User/Sieve.java",
+		"/home/mayank/code/java/LeastPrimetillN.java",
+		"/home/mayank/code/java/sieve.java",
+		"/home/mayank/Downloads/CtCI-6th-Edition/Java/Ch 06. Math and Logic Puzzles/Introduction/SieveOfEratosthenes.java",
+		"/home/mayank/.config/sublime-text-3/Packages/Terminal/Default (Linux).sublime-keymap",
+		"/home/mayank/code/python/sieve.py",
+		"/home/mayank/.config/sublime-text-3/Packages/AutoPep8/AutoPep8.sublime-settings",
+		"/home/mayank/code/python/DFScycle.py",
+		"/home/mayank/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
+		"/home/mayank/.config/sublime-text-3/Packages/User/SublimeLint.sublime-settings"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			")"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 59.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 128.0
+	},
+	"output.Terminus":
+	{
+		"height": 235.0
+	},
+	"output.autopep8":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 168.0
+	},
+	"pinned_build_system": "",
+	"project": "git_CS354.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/mb_project.sublime-project.sublime-workspace"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 214.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
