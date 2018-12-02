@@ -15,13 +15,6 @@ class LostListView(ListView):
     template_name = "lost/home.html"
 
 
-# class LostDetailView(DetailView):
-#     model = Lost 
-#     template_name = "lost/detail.html"
-
-#     def 
-
-
 class LostCreateView(LoginRequiredMixin, CreateView):
     model = Lost
     fields = ('title', 'description', 'location', 'date_item_lost', 
