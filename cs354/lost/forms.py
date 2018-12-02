@@ -18,7 +18,7 @@ class ItemCreateForm(forms.ModelForm):
     brand = forms.CharField(label=("Brand"), max_length=30,
                             help_text=(""),
                             widget=forms.TextInput(attrs={'class': 'form-control',
-                                                          'required': 'true',
+                                                          'required': 'false',
                                                           'placeholder': 'What\'s the brand of the item'}))
     color = forms.CharField(label=("Color"), max_length=30,
                             help_text=(""),
@@ -29,7 +29,7 @@ class ItemCreateForm(forms.ModelForm):
     description = forms.CharField(label=("Additional Description"), max_length=30,
                                   help_text=(""),
                                   widget=forms.TextInput(attrs={'class': 'form-control',
-                                                                'required': 'true',
+                                                                'required': 'false',
                                                                 'placeholder': 'Describe the item so that we can find it better'}))
     picture = forms.FileField()
 
@@ -53,7 +53,7 @@ class ItemEditForm(forms.ModelForm):
     brand = forms.CharField(label=("Brand"), max_length=30,
                             help_text=(""),
                             widget=forms.TextInput(attrs={'class': 'form-control',
-                                                          'required': 'true',
+                                                          'required': 'false',
                                                           'placeholder': 'What\'s the brand of the item'}))
     color = forms.CharField(label=("Color"), max_length=30,
                             help_text=(""),
@@ -64,7 +64,7 @@ class ItemEditForm(forms.ModelForm):
     description = forms.CharField(label=("Additional Description"), max_length=30,
                                   help_text=(""),
                                   widget=forms.TextInput(attrs={'class': 'form-control',
-                                                                'required': 'true',
+                                                                'required': 'false',
                                                                 'placeholder': 'Describe the item so that we can find it better'}))
     class Meta:
         model = Lost
