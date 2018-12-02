@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView, FormView, DetailView
+from django.views.generic import CreateView, FormView
 from django.urls import reverse_lazy
 from .forms import  CustomUserCreationForm, CustomUserChangeForm
 # Create your views here.
@@ -16,8 +16,6 @@ class UserProfile(FormView):
     form_class = CustomUserCreationForm
 
 
-class UserDetailView()
-    
 def edit_profile(request):
     if request.method == 'POST':
         form = CustomUserChangeForm(request.POST, instance=request.user)

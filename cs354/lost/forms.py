@@ -16,22 +16,19 @@ class ItemCreateForm(forms.ModelForm):
                                                           'placeholder': 'Where did you find the article'}))
 
     brand = forms.CharField(label=("Brand"), max_length=30,
-                            help_text=(""),
+                           required=False,
                             widget=forms.TextInput(attrs={'class': 'form-control',
-                                                          'required': 'false',
                                                           'placeholder': 'What\'s the brand of the item'}))
     color = forms.CharField(label=("Color"), max_length=30,
-                            help_text=(""),
+                            required=False,
                             widget=forms.TextInput(attrs={'class': 'form-control',
-                                                          'required': 'true',
                                                           'placeholder': 'Describe the color of the item'}))
 
     description = forms.CharField(label=("Additional Description"), max_length=30,
-                                  help_text=(""),
+                                  required=False,
                                   widget=forms.TextInput(attrs={'class': 'form-control',
-                                                                'required': 'false',
                                                                 'placeholder': 'Describe the item so that we can find it better'}))
-    picture = forms.FileField()
+    picture = forms.FileField(required=False,)
 
     class Meta:
         model = Lost
@@ -51,21 +48,20 @@ class ItemEditForm(forms.ModelForm):
                                                           'placeholder': 'Where did you find the article'}))
 
     brand = forms.CharField(label=("Brand"), max_length=30,
-                            help_text=(""),
+                            required=False,
                             widget=forms.TextInput(attrs={'class': 'form-control',
-                                                          'required': 'false',
                                                           'placeholder': 'What\'s the brand of the item'}))
     color = forms.CharField(label=("Color"), max_length=30,
-                            help_text=(""),
+                            required=False,
                             widget=forms.TextInput(attrs={'class': 'form-control',
-                                                          'required': 'true',
                                                           'placeholder': 'Describe the color of the item'}))
 
     description = forms.CharField(label=("Additional Description"), max_length=30,
-                                  help_text=(""),
+                                  required=False,
                                   widget=forms.TextInput(attrs={'class': 'form-control',
-                                                                'required': 'false',
                                                                 'placeholder': 'Describe the item so that we can find it better'}))
+    picture = forms.FileField(required=False,)
+    
     class Meta:
         model = Lost
         exclude = ('found_status', 'date_item_registered', 'author')

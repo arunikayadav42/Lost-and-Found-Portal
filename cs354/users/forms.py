@@ -49,8 +49,8 @@ class CustomUserCreationForm(UserCreationForm):
                                                           'placeholder': 'Address'}))
 
     addressline2 = forms.CharField(label=("Address Line 2"), max_length=30,
+                                   required=False,
                                    widget=forms.TextInput(attrs={'class': 'form-control',
-                                                          'required': 'true',
                                                           'placeholder': 'Address2'}))
 
     class Meta(UserCreationForm.Meta):
@@ -92,8 +92,8 @@ class CustomUserChangeForm(UserChangeForm):
                                                           'placeholder': 'Address'}))
 
     addressline2 = forms.CharField(label=("Address Line 2"), max_length=30,
+                                   required=False,
                                    widget=forms.TextInput(attrs={'class': 'form-control',
-                                                          'required': 'true',
                                                           'placeholder': 'Address2'}))
     
     class Meta(UserChangeForm.Meta):

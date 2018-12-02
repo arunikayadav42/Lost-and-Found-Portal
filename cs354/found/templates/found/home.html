@@ -18,14 +18,14 @@
    <td>
       <div class="lost-entry">
       <h2>
-         <a href="{% url "lost_detail" item.pk %}">
+         <a href="{% url "found_detail" item.pk %}">
             {{ item.title }}
          </a>
       </h2>
       <b>By : {{item.author}}</b>
    </div>
    <div class="date & comments">
-      Comments : {{ item.comments.count }} | {{ item.date_item_registered }}
+      Comments : {{ item.found_comments.count }} | {{ item.date_item_registered }}
    </div>
    </td>
 </tr>

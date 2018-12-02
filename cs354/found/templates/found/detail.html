@@ -1,4 +1,4 @@
-.{% extends "base.html" %}
+{% extends "base.html" %}
 {% block title %}{{found.title}}{% endblock title %}
 {% block content %}
 <div class="card">
@@ -9,11 +9,11 @@
     <hr>
     <div class="card-body">
         <div class="panel-body">
-            <span><h4><b>Brand / Company :</b></h4></span> <span >  <pre>{{ lost.brand}}</pre></span> 
+            <span><h4><b>Brand / Company :</b></h4></span> <span >  <pre>{{ found.brand}}</pre></span> 
             <hr>
-            <span><h4><b>Color :</b></h4></span> <span >  <pre>{{ lost.color}}</pre></span>
+            <span><h4><b>Color :</b></h4></span> <span >  <pre>{{ found.color}}</pre></span>
             <hr>
-            <span><h4><b>Additional Description :</b></h4></span><span > <pre>{{ lost.description}}</pre></span>
+            <span><h4><b>Additional Description :</b></h4></span><span > <pre>{{ found.description}}</pre></span>
         </div>
     </div>
     <div class="card-body">
