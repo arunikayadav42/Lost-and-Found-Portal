@@ -9,11 +9,19 @@
     <hr>
     <div class="card-body">
         <div class="panel-body">
-            <span><h4><b>Brand / Company :</b></h4></span> <span >  <pre>{{ found.brand}}</pre></span> 
+            {% if found.brand %}
+                <span><h4><b>Brand / Company :</b></h4></span> <span >  <pre>{{ found.brand}}</pre></span>  
+            {% endif %}
             <hr>
-            <span><h4><b>Color :</b></h4></span> <span >  <pre>{{ found.color}}</pre></span>
+            {% if  found.color %}
+                <span><h4><b>Color :</b></h4></span> <span >  <pre>{{ found.color}}</pre></span>            
+            {% endif %}
+            
             <hr>
-            <span><h4><b>Additional Description :</b></h4></span><span > <pre>{{ found.description}}</pre></span>
+            {% if found.description %}
+                <span><h4><b>Additional Description :</b></h4></span><span > <pre>{{ found.description}}</pre></span>
+            {% endif %}
+            
         </div>
     </div>
     <div class="card-body">

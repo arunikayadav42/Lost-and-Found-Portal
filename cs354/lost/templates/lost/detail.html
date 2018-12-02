@@ -11,15 +11,23 @@
     <hr>
     <div class="card-body">
         <div class="panel-body">
-            <span><h4><b>Brand / Company :</b></h4></span> <span >  <pre>{{ lost.brand}}</pre></span> 
+            {% if lost.brand %}
+                <span><h4><b>Brand / Company :</b></h4></span> <span >  <pre>{{ lost.brand}}</pre></span>  
+            {% endif %}
             <hr>
-            <span><h4><b>Color :</b></h4></span> <span >  <pre>{{ lost.color}}</pre></span>
+            {% if  lost.color %}
+                <span><h4><b>Color :</b></h4></span> <span >  <pre>{{ lost.color}}</pre></span>            
+            {% endif %}
+            
             <hr>
-            <span><h4><b>Additional Description :</b></h4></span><span > <pre>{{ lost.description}}</pre></span>
+            {% if lost.description %}
+                <span><h4><b>Additional Description :</b></h4></span><span > <pre>{{ lost.description}}</pre></span>
+            {% endif %}
+            
         </div>
     </div>
     <div class="card-body">
-        {% if lost.picture %}    <img src="{{ lost.picture.url }}" alt="Avatar" style="width:70%">{% endif %}
+        {% if lost.picture %}    <img src="{{ lost.picture.url }}" alt="Avatar" height="100">{% endif %}
     </div>
     {% if lost.author == request.user %}
         <div class="card-footer text-center text-muted">
