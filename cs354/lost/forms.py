@@ -4,6 +4,55 @@ from bootstrap_datepicker_plus import DatePickerInput
 
 
 class CommentForm(forms.ModelForm):
-	class Meta:
-		model = Comment
-		fields = ['author', 'text', ]
+    class Meta:
+        model = Comment
+        fields = ['author', 'text', ]
+
+
+class ItemCreateForm(forms.ModelForm):
+    title = forms.CharField(label=("Title"), max_length=30,
+                            help_text=(""),
+                            widget=forms.TextInput(attrs={'class': 'form-control',
+                                                          'required': 'true',
+                                                          'placeholder': 'What\'s the kind of article'}))
+    location = forms.CharField(label=("Location"), max_length=30,
+                               help_text=(""),
+                               widget=forms.TextInput(attrs={'class': 'form-control',
+                                                          'required': 'true',
+                                                          'placeholder': 'Where did you find the article'}))
+
+    description = forms.CharField(label=("Description"), max_length=30,
+                                  help_text=(""),
+                                  widget=forms.TextInput(attrs={'class': 'form-control',
+                                                          'required': 'true',
+                                                          'placeholder': 'Describe the item so that we can find it better'}))
+
+    picture = forms.FileField()
+
+    class Meta:
+        model = Lost
+        exclude = ('found_status', 'date_item_registered', 'author')
+
+
+class ItemEditForm(forms.ModelForm):
+    title = forms.CharField(label=("Title"), max_length=30,
+                            help_text=(""),
+                            widget=forms.TextInput(attrs={'class': 'form-control',
+                                                          'required': 'true',
+                                                          'placeholder': 'What\'s the kind of article'}))
+    location = forms.CharField(label=("Location"), max_length=30,
+                               help_text=(""),
+                               widget=forms.TextInput(attrs={'class': 'form-control',
+                                                          'required': 'true',
+                                                          'placeholder': 'Where did you find the article'}))
+
+    description = forms.CharField(label=("Description"), max_length=30,
+                                  help_text=(""),
+                                  widget=forms.TextInput(attrs={'class': 'form-control',
+                                                          'required': 'true',
+                                                          'placeholder': 'Describe the item so that we can find it better'}))
+
+
+    class Meta:
+        model = Lost
+        exclude = ('found_status', 'date_item_registered', 'author')

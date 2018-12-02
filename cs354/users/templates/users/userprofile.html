@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+{% csrf_token %}
+<form method="">
+  <div class="form-group">
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>Username</label>
+         {% if user.username %}
+             <input type="text" class="form-control" id="inputUserName" placeholder="{{user.username}}" readonly>
+         
+         {% endif %}
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Email</label>
+      {% if user.email %}
+          <input type="email" class="form-control" id="inputEmail4" placeholder="{{ user.email }}" readonly>
+      {% else %}
+          <input type="email" class="form-control" id="inputEmail4" placeholder="Eg. vikas@iitp.ac.in" readonly>
+      {% endif %}
+      
+    </div>
+  </div>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Phone Number</label>
+    {% if user.contact %}
+        <input type="email" class="form-control" id="inputEmail4" placeholder="{{ user.contact }}" readonly>
+    {% else %}
+       <input type="tel" class="form-control" id="inputContact" placeholder="Eg. 9873654081 10-digit" readonly> 
+    {% endif %}
+    
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Address 1</label>
+    {% if user.addressline1 %}
+        <input type="text" class="form-control" id="inputAddress" placeholder="{{user.addressline1}}" readonly>
+    {% else %}
+      <input type="text" class="form-control" id="inputAddress" placeholder="Not given" readonly>
+
+    {% endif %}
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Address 2</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="{{user.addressline2}}" readonly>
+  </div>
+  <a href="{% url "editprofile" %}" class="btn btn-primary">Edit Profile</a>
+  <a href="{% url "password_change" %}" class="btn btn-primary">Change Password</a>
+</form>
+{% endblock content %}

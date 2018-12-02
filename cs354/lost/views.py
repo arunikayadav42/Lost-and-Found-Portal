@@ -1,12 +1,13 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from bootstrap_datepicker_plus import DateTimePickerInput
 from django.urls import reverse_lazy
 from .models import Lost, Comment
 from django.core.exceptions import PermissionDenied
-from .forms import CommentForm
+from .forms import CommentForm, ItemCreateForm, ItemEditForm
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
+from django.http import HttpResponseRedirect
 
 
 class LostListView(ListView):
@@ -21,9 +22,10 @@ class LostDetailView(DetailView):
 
 class LostCreateView(LoginRequiredMixin, CreateView):
     model = Lost
-    fields = ('title', 'description', 'location', 'date_item_lost', 'picture')
+    form_class = ItemCreateForm
     template_name = "lost/create.html"
     login_url = 'login'
+    success_url = reverse_lazy("lost_list")
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -32,15 +34,13 @@ class LostCreateView(LoginRequiredMixin, CreateView):
     def get_form(self):
         form = super().get_form()
         form.fields['date_item_lost'].widget = DateTimePickerInput()
-        return form
-
-    success_url = reverse_lazy("lost_list")
+        return form    
 
 
 class LostUpdateView(LoginRequiredMixin, UpdateView):
     model = Lost
     template_name = "lost/update.html"
-    fields = ('title', 'description', 'location', 'date_item_lost', 'picture')
+    form_class = ItemEditForm
     login_url = 'login'
 
     def get_form(self):
