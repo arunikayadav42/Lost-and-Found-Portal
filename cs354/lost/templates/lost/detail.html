@@ -21,21 +21,4 @@
         <div class="card-footer text-center text-muted">
             <a href="{% url "lost_edit" lost.pk %}" class="btn btn-info">Edit</a> | <a href="{% url "lost_delete" lost.pk %}" class="btn btn-danger"> Delete</a>
         </div>
-        {% if lost.comments.all %}
-        <h2>Comments</h2>
-        <div class="card-footer">
-            {% for comment in lost.comments.all %}
-            <p>
-                <span class="font-weight-bold">
-                {{ comment.author }}
-            </span>
-                <div class="panel panel-primary">
-                    <div class="panel-body">{{ comment.text }}</div>
-                </div>
-            </p>
-            {% endfor %}
-        </div>
-        {% endif %}
-        <br>
-        <a href="{% url "add_comment_to_lost" lost.pk%}">Add Comment</a>
         {% endblock content %}

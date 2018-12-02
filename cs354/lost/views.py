@@ -3,9 +3,9 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from bootstrap_datepicker_plus import DateTimePickerInput
 from django.urls import reverse_lazy
-from .models import Lost, Comment
+from .models import Lost
 from django.core.exceptions import PermissionDenied
-from .forms import CommentForm, ItemCreateForm, ItemEditForm
+from .forms import ItemCreateForm, ItemEditForm
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.http import HttpResponseRedirect
 
@@ -68,17 +68,3 @@ class LostDeleteView(LoginRequiredMixin, DeleteView):
             raise PermissionDenied
         return super().dispatch(request, *args, **kwargs)
         
-
-def add_comment_to_lost(request, pk):
-    lost = get_object_or_404(Lost, pk=pk)
-    form = CommentForm(request.POST)
-    login_url = 'login'
-
-    if form.is_valid():
-        comment = form.save(commit=False)
-        comment.lost = lost
-        comment.save()
-        return redirect('lost_detail', pk=lost.pk)
-    else:
-        form = CommentForm()
-    return render(request, 'lost/add_comment_to_lost.html', {'form': form})

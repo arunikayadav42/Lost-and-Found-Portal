@@ -21,22 +21,3 @@ class Lost(models.Model):
 
     def get_absolute_url(self):
         return reverse('lost_detail', args=[str(self.pk)])
-
-
-class Comment(models.Model):
-    lost = models.ForeignKey(Lost, on_delete=models.CASCADE, 
-                             related_name="comments")
-    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
-    text = models.TextField()
-    created_date = models.DateTimeField(default=timezone.now)
-    approved_comment = models.BooleanField(default=False)
-
-    def approve(self):
-        self.approved_comment = True
-        self.save()
-
-    def get_absolute_url(self):
-        return reverse('lost_detail', args=[str(self.pk)])
-
-    def __str__(self):
-        return self.text
