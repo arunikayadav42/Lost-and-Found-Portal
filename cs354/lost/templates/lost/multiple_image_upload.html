@@ -1,9 +1,0 @@
-{% extends 'base.html' %}
-
-{% block content %}
-    <h1>Upload Images</h1>
-    <form method="POST" enctype="multipart/form-data">{% csrf_token %}
-        {{ imageform.as_p }}
-        <button type="submit" class="save btn btn-default">Send</button>
-    </form>
-{% endblock %}
