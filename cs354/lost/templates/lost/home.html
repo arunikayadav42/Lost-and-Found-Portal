@@ -1,6 +1,19 @@
 {% extends "base.html" %}
+{% block form %}
+<li>
+    <p>
+        <form action="" method="GET" class="form-inline">
+            <span><input class="form-control" type="text" name="q" placeholder="Search" value="{{ request.GET.q }}">
+                        <button class="btn btn-success" type="submit">Search</button></span>
+        </form>
+    </p>
+</li>
+{% endblock form %}
 {% block content %}
-<div>
+
+{% if q %}
+    {% else %}
+        <div>
       <a href="{% url "lost_create" %}" class="btn btn-danger" cellpadding="10px"><span class="glyphicon glyphicon-plus"><b> Register Item</b></span></a>
 </div>
 <div class="table-responsive">
@@ -25,7 +38,7 @@
       <b>By : {{item.author}}</b>
    </div>
    <div class="date & comments">
-      Comments : {{ item.comments.count }} | {{ item.date_item_registered }}
+      Comments : {{ item.found_comments.count }} | {{ item.date_item_registered }}
    </div>
    </td>
 </tr>
@@ -34,4 +47,6 @@
       </tbody>
    </table>
 </div>
+
+{% endif %}
 {% endblock content %}

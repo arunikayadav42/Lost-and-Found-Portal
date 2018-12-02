@@ -9,7 +9,8 @@
         <span class="text-muted">by {{ lost.author }} | {{ lost.date_item_lost }}</span>
     </div>
     <hr>
-    <div class="card-body">
+    {% if lost.color or lost.brand or lost.description %}
+        <div class="card-body">
         <div class="panel-body">
             {% if lost.brand %}
                 <span><h4><b>Brand / Company :</b></h4></span> <span >  <pre>{{ lost.brand}}</pre></span>  
@@ -26,6 +27,8 @@
             
         </div>
     </div>
+    
+    {% endif %}
     <div class="card-body">
         {% if lost.picture %}    <img src="{{ lost.picture.url }}" alt="Avatar" height="100">{% endif %}
     </div>
