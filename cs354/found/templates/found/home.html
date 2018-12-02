@@ -1,6 +1,18 @@
 {% extends "base.html" %}
+{% block form %}
+<li>
+    <p>
+        <form action="" method="GET" class="form-inline">
+            <span><input class="form-control" type="text" name="q" placeholder="Search">
+                        <button class="btn btn-success" type="submit">Search</button></span>
+        </form>
+    </p>
+</li>
+{% endblock form %}
 {% block content %}
-<div>
+{% if q %}
+    {% else %}
+        <div>
       <a href="{% url "found_create" %}" class="btn btn-danger" cellpadding="10px"><span class="glyphicon glyphicon-plus"><b> Register Item</b></span></a>
 </div>
 <div class="table-responsive">
@@ -34,4 +46,6 @@
       </tbody>
    </table>
 </div>
+
+{% endif %}
 {% endblock content %}

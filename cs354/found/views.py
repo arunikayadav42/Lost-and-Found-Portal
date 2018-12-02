@@ -8,12 +8,30 @@ from django.core.exceptions import PermissionDenied
 from .forms import ItemCreateForm, ItemEditForm, CommentForm
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.http import HttpResponseRedirect
+from django.db.models import Q
 
 
 class FoundListView(ListView):
     model = Found
     template_name = "found/home.html"
-
+    
+    def get_queryset(self):
+        try:
+            a = self.request.GET.get('q')
+        except KeyError:
+            a = None
+        if a:
+            found_list = Found.objects.filter(
+                Q(title__icontains=a) |
+                Q(description__icontains=a) |
+                Q(color__icontains=a) |
+                Q(brand__icontains=a) |
+                Q(location__icontains=a),
+                author=self.request.user
+            )
+        else:
+            found_list = Found.objects.all()
+        return found_list
 
 class FoundCreateView(LoginRequiredMixin, CreateView):
     model = Found

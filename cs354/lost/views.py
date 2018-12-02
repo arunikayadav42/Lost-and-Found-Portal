@@ -4,16 +4,37 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from bootstrap_datepicker_plus import DateTimePickerInput
 from django.urls import reverse_lazy
 from .models import Lost, Comment
+from found.models import Found
 from django.core.exceptions import PermissionDenied
 from .forms import ItemCreateForm, ItemEditForm, CommentForm
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.http import HttpResponseRedirect
+from django.db.models import Q
 
 
 class LostListView(ListView):
-    model = Lost
     template_name = "lost/home.html"
-
+    model = Lost
+    paginate_by = 1
+    
+    def get_queryset(self):
+        try:
+            a = self.request.GET.get('q')
+        except KeyError:
+            a = None
+        if a:
+            found_list = Lost.objects.filter(
+                Q(title__icontains=a) |
+                Q(description__icontains=a) |
+                Q(color__icontains=a) |
+                Q(brand__icontains=a) |
+                Q(location__icontains=a),
+                author=self.request.user
+            )
+        else:
+            lost_list = Lost.objects.all()
+        return lost_list
+        
 
 class LostCreateView(LoginRequiredMixin, CreateView):
     model = Lost
