@@ -26,6 +26,14 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="{% url "lost_list" %}">Lost</a></li>
                 <li><a href="{% url "found_list" %}">Found</a></li>
+                {% if user.is_authenticated %}
+                <li>
+                    <p><form action="" method="GET" class="form-inline">
+                        <span><input class="form-control" type="text" name="q" placeholder="Search">
+                        <button class="btn btn-success" type="submit">Search</button></span>
+                    </form></p>
+                </li>
+                {% endif %}
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}
