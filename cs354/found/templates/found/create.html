@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-    <h4>
-    	<form actions="" method="post" enctype="multipart/form-data">
-    		{% csrf_token %}
-    		{{ form.as_p }}
-    		<input type="submit" value="Submit">
-    	</form>
-    </h4>
-
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.media }}
+    {{ form.as_p }}
+    <input type="submit" name="Submit">
+        <a href="{% url "launch_home" %}" class="btn btn-danger">Cancel</a>
+</form>
 {% endblock content %}

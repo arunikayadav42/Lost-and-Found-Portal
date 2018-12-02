@@ -1,12 +1,13 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.urls import reverse_lazy
-from django.core.exceptions import PermissionDenied
-from .models import Found, Comment
 from bootstrap_datepicker_plus import DateTimePickerInput
-from .forms import CommentForm
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.urls import reverse_lazy
+from .models import Found, Comment
+from django.core.exceptions import PermissionDenied
+from .forms import ItemCreateForm, ItemEditForm, CommentForm
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
+from django.http import HttpResponseRedirect
 
 
 class FoundListView(ListView):
@@ -14,17 +15,12 @@ class FoundListView(ListView):
     template_name = "found/home.html"
 
 
-class FoundDetailView(DetailView):
-    model = Found
-    template_name = "found/detail.html"
-
-
 class FoundCreateView(LoginRequiredMixin, CreateView):
     model = Found
+    form_class = ItemCreateForm
     template_name = "found/create.html"
-    fields = ('title', 'description', 'location', 'date_item_lost', 'picture')
-    success_url = reverse_lazy("found_list")
     login_url = 'login'
+    success_url = reverse_lazy("found_list")
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -32,28 +28,20 @@ class FoundCreateView(LoginRequiredMixin, CreateView):
 
     def get_form(self):
         form = super().get_form()
-        form.fields['date_item_lost'].widget = DateTimePickerInput()
-        return form
+        form.fields['date_item_found'].widget = DateTimePickerInput()
+        return form    
 
 
 class FoundUpdateView(LoginRequiredMixin, UpdateView):
     model = Found
     template_name = "found/update.html"
-    fields = "('title', 'description', 'location', 'date', 'picture')"
+    form_class = ItemEditForm
     login_url = 'login'
 
-    def dispatch(self, request, *args, **kwargs):
-        obj = self.get_object()
-        if obj.author != self.request.user:
-            raise PermissionDenied
-        return super().dispatch(request, *args, **kwargs)
-            
-
-class FoundDeleteView(LoginRequiredMixin, DeleteView):
-    model = Found
-    template_name = "found/delete.html"
-    success_url = reverse_lazy("found_list")
-    login_url = 'login'
+    def get_form(self):
+        form = super().get_form()
+        form.fields['date_item_found'].widget = DateTimePickerInput()
+        return form
 
     def dispatch(self, request, *args, **kwargs):
         obj = self.get_object()
@@ -62,16 +50,42 @@ class FoundDeleteView(LoginRequiredMixin, DeleteView):
         return super().dispatch(request, *args, **kwargs)
         
 
-def add_comment_to_found(request, pk):
-    found = get_object_or_404(Found, pk=pk)
-    form = CommentForm(request.POST)
+class FoundDeleteView(LoginRequiredMixin, DeleteView):
+    model = Found
+    template_name = "found/delete.html"
+    success_url = reverse_lazy("found_list")
     login_url = 'login'
+    fields = "__all__"
 
-    if form.is_valid():
-        comment = form.save(commit=False)
-        comment.found = found
-        comment.save()
-        return redirect('found_detail', pk=found.pk)
+    def dispatch(self, request, *args, **kwargs):
+        obj = self.get_object()
+        if obj.author != self.request.user:
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
+
+
+def FoundDetail(request, pk):
+    found = get_object_or_404(Found, id=pk)
+    comments = Comment.objects.filter(found=found, reply=None).order_by('-id')
+
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST or None)
+        if comment_form.is_valid():
+            text = request.POST.get('text')
+            reply_id = request.POST.get('comment_id')
+            comment_qs = None
+            if reply_id:
+                comment_qs = Comment.objects.get(id=reply_id)
+            comment = Comment.objects.create(found=found, author=request.user, text=text, reply=comment_qs)
+            comment.save()
+            return HttpResponseRedirect(found.get_absolute_url())
     else:
-        form = CommentForm()
-    return render(request, 'found/add_comment_to_found.html', {'form': form})
+        comment_form = CommentForm()
+
+    context = {
+        'found': found,
+        'comments': comments,
+        'comment_form': comment_form,
+    }
+
+    return render(request, 'found/detail.html', context)

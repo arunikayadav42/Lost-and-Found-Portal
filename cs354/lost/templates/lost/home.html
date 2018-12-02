@@ -22,9 +22,11 @@
             {{ item.title }}
          </a>
       </h2>
+      <b>By : {{item.author}}</b>
    </div>
-   <div class="date">
+   <div class="date & comments">   Comments : {{ item.comments.count }} |    
                 {{ item.date_item_registered }}
+
    </div>
    </td>
 </tr>
