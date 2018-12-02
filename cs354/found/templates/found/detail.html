@@ -4,22 +4,26 @@
 <div class="card">
     <div class="card-header">
         <span class="font-weight-bold"><h1>{{ found.title }}</h1></span>
-        <span class="text-muted">by {{ found.author }} |{{ found.date_item_found }}</span>
+        <span class="text-muted">by {{ found.author }} | {{ found.date_item_found }}</span>
     </div>
     <hr>
     <div class="card-body">
         <div class="panel-body">
+            {% if found.location %}
+                <span><h4><b>Location :</b></h4></span> <span >  <pre style="font-size: 14px">{{ found.location}}</pre></span>  
+            {% endif %}
+            <hr>
             {% if found.brand %}
-                <span><h4><b>Brand / Company :</b></h4></span> <span >  <pre>{{ found.brand}}</pre></span>  
+                <span><h4><b>Brand / Company :</b></h4></span> <span >  <pre style="font-size: 14px">{{ found.brand}}</pre></span>  
             {% endif %}
             <hr>
             {% if  found.color %}
-                <span><h4><b>Color :</b></h4></span> <span >  <pre>{{ found.color}}</pre></span>            
+                <span><h4><b>Color :</b></h4></span> <span >  <pre style="font-size: 14px">{{ found.color}}</pre></span>            
             {% endif %}
             
             <hr>
             {% if found.description %}
-                <span><h4><b>Additional Description :</b></h4></span><span > <pre>{{ found.description}}</pre></span>
+                <span><h4><b>Additional Description :</b></h4></span><span > <pre style="font-size: 14px">{{ found.description}}</pre></span>
             {% endif %}
             
         </div>

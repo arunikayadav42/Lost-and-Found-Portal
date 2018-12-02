@@ -1,4 +1,4 @@
-.{% extends "base.html" %}
+{% extends "base.html" %}
 {% block title %}{{lost.title}}{% endblock title %}
 {% block content %}
 
@@ -11,17 +11,21 @@
     <hr>
     <div class="card-body">
         <div class="panel-body">
+            {% if lost.location %}
+                <span><h4><b>Location :</b></h4></span> <span >  <pre style="font-size: 14px">{{ lost.location}}</pre></span>  
+            {% endif %}
+            <hr>
             {% if lost.brand %}
-                <span><h4><b>Brand / Company :</b></h4></span> <span >  <pre>{{ lost.brand}}</pre></span>  
+                <span><h4><b>Brand / Company :</b></h4></span> <span >  <pre style="font-size: 14px">{{ lost.brand}}</pre></span>  
             {% endif %}
             <hr>
             {% if  lost.color %}
-                <span><h4><b>Color :</b></h4></span> <span >  <pre>{{ lost.color}}</pre></span>            
+                <span><h4><b>Color :</b></h4></span> <span >  <pre style="font-size: 14px">{{ lost.color}}</pre></span>            
             {% endif %}
             
             <hr>
             {% if lost.description %}
-                <span><h4><b>Additional Description :</b></h4></span><span > <pre>{{ lost.description}}</pre></span>
+                <span><h4><b>Additional Description :</b></h4></span><span > <pre style="font-size: 14px">{{ lost.description}}</pre></span>
             {% endif %}
             
         </div>
