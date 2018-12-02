@@ -1,11 +1,10 @@
-{% extends "base.html" %}
+.{% extends "base.html" %}
 {% block title %}{{lost.title}}{% endblock title %}
 {% block content %}
 <div class="card">
     <div class="card-header">
         <span class="font-weight-bold"><h1>{{ lost.title }}</h1></span>
-        <span class="text-muted">by {{ lost.author }} |
-{{ lost.date_item_lost }}</span>
+        <span class="text-muted">by {{ lost.author }} |{{ lost.date_item_lost }}</span>
     </div>
     <hr>
     <div class="card-body">
@@ -17,8 +16,16 @@
     </div>
     <div class="card-body">
         {% if lost.picture %}<img src="{{ lost.picture.url }}" height="100">{% endif %}
-</div>
+    </div>
+    {% if lost.author == request.user %}
         <div class="card-footer text-center text-muted">
-            <a href="{% url "lost_edit" lost.pk %}" class="btn btn-info">Edit</a> | <a href="{% url "lost_delete" lost.pk %}" class="btn btn-danger"> Delete</a>
-        </div>
-        {% endblock content %}
+        <a href="{% url "lost_edit" lost.pk %}" class="btn btn-info">Edit</a> | <a href="{% url "lost_delete" lost.pk %}" class="btn btn-danger"> Delete</a>
+    </div>
+    {% endif %}
+<hr>
+
+ <div class="main-comment-section">
+    {% include 'lost/comments.html' %}
+</div>
+
+{% endblock content %}

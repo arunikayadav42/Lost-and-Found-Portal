@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap_datepicker_plus',
     'reset_migrations',
-    'phonenumber_field',
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'

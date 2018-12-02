@@ -1,4 +1,4 @@
-from .models import Lost
+from .models import Lost, Comment
 from django import forms
 from bootstrap_datepicker_plus import DatePickerInput
 
@@ -46,7 +46,14 @@ class ItemEditForm(forms.ModelForm):
                                                           'required': 'true',
                                                           'placeholder': 'Describe the item so that we can find it better'}))
 
-
     class Meta:
         model = Lost
         exclude = ('found_status', 'date_item_registered', 'author')
+
+
+class CommentForm(forms.ModelForm):
+    text = forms.CharField(label="", widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Your comment here ...', 'rows': '2', 'cols': '15'}))
+  
+    class Meta:
+        model = Comment
+        fields = ['text', ]
