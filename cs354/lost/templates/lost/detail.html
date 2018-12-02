@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+`{% extends "base.html" %}
 {% block content %}
 <div class="lost-entry">
     <div class="table-responsive">
@@ -10,54 +10,46 @@
             </thead>
             <tbody>
                 <tr>
-                    <td> <p>Time : <span>{{ lost.date_item_lost }}</span></p>
-                     <p>Location: <span>{{ lost.location }}</span></p></td>
+                    <td>
+                        <p>Time : <span>{{ lost.date_item_lost }}</span></p>
+                        <p>Location: <span>{{ lost.location }}</span></p>
+                    </td>
                 </tr>
                 <tr>
                     <td>
                         <span>
-                    		{{ lost.description }}
-                    	</span>
+                            {{ lost.description }}
+                        </span>
                         <br>
                         <span>
-                    		{% if lost.picture %}
-                    		<img src="{{ lost.picture.url }}" height="100">
-                    		{% endif %}
-                    	</span>
+                            {% if lost.picture %}
+                            <img src="{{ lost.picture.url }}" height="100">
+                            {% endif %}
+                        </span>
                     </td>
                 </tr>
+                {% if lost.author == request.user %}
                 <tr>
                     <td>
                         <p>
                             <span>
-                    		<a href="{% url "lost_edit" lost.pk %}" class="btn btn-info">Edit</a>
-                    	</span>
+                            <a href="{% url "lost_edit" lost.pk %}" class="btn btn-info">Edit</a>
+                        </span>
                             <span>
-                    		<a href="{% url "lost_delete" lost.pk %}" class="btn btn-danger"> Delete</a>
-                    	</span>
+                            <a href="{% url "lost_delete" lost.pk %}" class="btn btn-danger"> Delete</a>
+                        </span>
                         </p>
                     </td>
                 </tr>
+                {% endif %}
             </tbody>
         </table>
     </div>
 </div>
 <hr>
-{% if lost.comments.all %}
-    <h2>Comments</h2>
-    <div class="card-footer">
-    {% for comment in lost.comments.all %}
-        <p>
-            <span class="font-weight-bold">
-                {{ comment.author }}
-            </span>
-            <div class="panel panel-primary">
-  <div class="panel-body">{{ comment.text }}</div>
-</div>            
-        </p>
-    {% endfor %}
+
+ <div class="main-comment-section">
+    {% include 'lost/comments.html' %}
 </div>
-{% endif %}
-<br>
-<a href="{% url "add_comment_to_lost" lost.pk%}">Add Comment</a>
+
 {% endblock content %}

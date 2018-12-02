@@ -7,6 +7,7 @@ from .models import Lost, Comment
 from django.core.exceptions import PermissionDenied
 from .forms import CommentForm
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
+from django.http import HttpResponseRedirect
 
 
 class LostListView(ListView):
@@ -14,9 +15,11 @@ class LostListView(ListView):
     template_name = "lost/home.html"
 
 
-class LostDetailView(DetailView):
-    model = Lost
-    template_name = "lost/detail.html"
+# class LostDetailView(DetailView):
+#     model = Lost 
+#     template_name = "lost/detail.html"
+
+#     def 
 
 
 class LostCreateView(LoginRequiredMixin, CreateView):
@@ -68,19 +71,30 @@ class LostDeleteView(LoginRequiredMixin, DeleteView):
         if obj.author != self.request.user:
             raise PermissionDenied
         return super().dispatch(request, *args, **kwargs)
-        
 
-def add_comment_to_lost(request, pk):
-    lost = get_object_or_404(Lost, pk=pk)
-    form = CommentForm(request.POST)
-    login_url = 'login'
 
-    if form.is_valid():
-        comment = form.save(commit=False)
-        comment.lost = lost
-        comment.author = request.user
-        comment.save()
-        return redirect('lost_detail', pk=lost.pk)
+def LostDetail(request, pk):
+    lost = get_object_or_404(Lost, id=pk)
+    comments = Comment.objects.filter(lost=lost, reply=None).order_by('-id')
+
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST or None)
+        if comment_form.is_valid():
+            text = request.POST.get('text')
+            reply_id = request.POST.get('comment_id')
+            comment_qs = None
+            if reply_id:
+                comment_qs = Comment.objects.get(id=reply_id)
+            comment = Comment.objects.create(lost=lost, author=request.user, text=text, reply=comment_qs)
+            comment.save()
+            return HttpResponseRedirect(lost.get_absolute_url())
     else:
-        form = CommentForm()
-    return render(request, 'lost/add_comment_to_lost.html', {'form': form})
+        comment_form = CommentForm()
+
+    context = {
+        'lost': lost,
+        'comments': comments,
+        'comment_form': comment_form,
+    }
+
+    return render(request, 'lost/detail.html', context)
