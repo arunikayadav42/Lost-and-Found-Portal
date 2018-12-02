@@ -1,27 +1,25 @@
 .{% extends "base.html" %}
 {% block title %}{{lost.title}}{% endblock title %}
 {% block content %}
+
 <div class="card">
+    <div class="container"></div>
     <div class="card-header">
         <span class="font-weight-bold"><h1>{{ lost.title }}</h1></span>
-        <span class="text-muted">by {{ lost.author }} |{{ lost.date_item_lost }}</span>
+        <span class="text-muted">by {{ lost.author }} | {{ lost.date_item_lost }}</span>
     </div>
     <hr>
     <div class="card-body">
-        <h4>Item Description :</h4>
-        <br>
-        <div class="panel panel-primary">
-            <div class="panel-body">{{lost.brand}}</div>
-        </div>
-        <div class="panel panel-primary">
-            <div class="panel-body">{{lost.color}}</div>
-        </div>
-        <div class="panel panel-primary">
-            <div class="panel-body">{{lost.description}}</div>
+        <div class="panel-body">
+            <span><h4><b>Brand / Company :</b></h4></span> <span >  <pre>{{ lost.brand}}</pre></span> 
+            <hr>
+            <span><h4><b>Color :</b></h4></span> <span >  <pre>{{ lost.color}}</pre></span>
+            <hr>
+            <span><h4><b>Additional Description :</b></h4></span><span > <pre>{{ lost.description}}</pre></span>
         </div>
     </div>
     <div class="card-body">
-        {% if lost.picture %}<img src="{{ lost.picture.url }}" height="100">{% endif %}
+        {% if lost.picture %}    <img src="{{ lost.picture.url }}" alt="Avatar" style="width:70%">{% endif %}
     </div>
     {% if lost.author == request.user %}
         <div class="card-footer text-center text-muted">
