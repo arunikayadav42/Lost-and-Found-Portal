@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    input.hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+#profile-image1 {
+    cursor: pointer;
+  
+     width: 100px;
+    height: 100px;
+  border:2px solid #03b1ce ;}
+  .tital{ font-size:16px; font-weight:500;}
+   .bot-border{ border-bottom:1px #f8f8f8 solid;  margin:5px 0  5px 0}  
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <div class="panel panel-default">
+                <div class="panel-heading"> <h4 >User Profile</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="box box-info">
+                        <div class="box-body">
+                            <div class="col-sm-6">
+                                {% if customuser.picture %}
+                                    <div align="center"> <img alt="Avatar" src="{{ customuser.picture.url }}" id="profile-image1" class="img-circle img-responsive">
+                                {% else %}
+                                    <div align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive">     
+                                {% endif %}
+                                
+                                    <!-- <div style="color:#999;">click here to change profile image</div> -->
+                                    <!--Upload Image Js And Css-->
+                                </div>
+                                <br>
+                                <!-- /input-group -->
+                            </div>
+                            <div class="col-sm-6">
+                                <h4 style="color:#00b1b1;">{{ customuser.username }}</h4></span>
+                                <span><p>{{Student}}</p></span>
+                            </div>
+                            <div class="clearfix"></div>
+                            <hr style="margin:5px 0 5px 0;">
+                            <div class="col-sm-5 col-xs-6 tital ">First Name:</div>
+                            <div class="col-sm-7 col-xs-6 ">{{ customuser.first_name }}</div>
+                            <div class="clearfix"></div>
+                            <div class="clearfix"></div>
+                            <div class="bot-border"></div>
+                            <div class="col-sm-5 col-xs-6 tital ">Last Name:</div>
+                            <div class="col-sm-7"> {{customuser.last_name}}</div>
+                            <div class="clearfix"></div>
+                            <div class="bot-border"></div>
+                            <div class="col-sm-5 col-xs-6 tital ">College ID :</div>
+                            <div class="col-sm-7">{{customuser.roll_no}}</div>
+                            <div class="clearfix"></div>
+                            <div class="bot-border"></div>
+                            <div class="col-sm-5 col-xs-6 tital ">Address :</div>
+                            <div class="col-sm-7">{{ customuser.addressline1}} {{customuser.addressline2}}</div>
+                            <div class="clearfix"></div>
+                            <div class="bot-border"></div>
+                            <div class="col-sm-5 col-xs-6 tital ">Contact :</div>
+                            <div class="col-sm-7">{{customuser.contact}}</div>
+                            <div class="clearfix"></div>
+                            <div class="bot-border"></div>
+                            <div class="col-sm-5 col-xs-6 tital ">Email :</div>
+                            <div class="col-sm-7">{{customuser.email}}</div>
+                            <div class="clearfix"></div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+        $(function() {
+            $('#profile-image1').on('click', function() {
+                $('#profile-image-upload').click();
+            });
+        });
+        </script>
+    </div>
+</div>
+{% endblock content %}
