@@ -6,6 +6,17 @@ from .models import CustomUser
 class CustomUserCreationForm(UserCreationForm):
     
     #to remove unwanted text from the user form fields
+    #
+    first_name = forms.CharField(label=("First Name"), max_length=30,
+                          widget=forms.TextInput(attrs={'class': 'form-control',
+                                                      'required': 'true',
+                                                      'placeholder': 'First Name'}))
+
+    last_name = forms.CharField(label=("Last Name"), max_length=30,
+                          widget=forms.TextInput(attrs={'class': 'form-control',
+                                                      'required': 'true',
+                                                      'placeholder': 'Last Name'}))
+
     username = forms.RegexField(label=("Username"), max_length=30, regex=r"^[\w.@+-]+$",
                                 help_text=(""),
                                 error_messages={'invalid': ("This value may co\
@@ -52,23 +63,34 @@ class CustomUserCreationForm(UserCreationForm):
                                    required=False,
                                    widget=forms.TextInput(attrs={'class': 'form-control',
                                                           'placeholder': 'Address2'}))
+    picture = forms.FileField(required=False,)
 
     class Meta(UserCreationForm.Meta):
         model = CustomUser
-        fields = UserCreationForm.Meta.fields + ('roll_no', 'email', 'contact', 'addressline1', 'addressline2')
+        fields = UserCreationForm.Meta.fields + ('first_name', 'last_name', 'roll_no', 'email', 'contact', 'addressline1', 'addressline2', 'picture')
 
 
 class CustomUserChangeForm(UserChangeForm):
     password = None
-    #to remove unwanted text from the user form fields
-    username = forms.RegexField(label=("Username"), max_length=30, regex=r"^[\w.@+-]+$",
-                                help_text=(""),
-                                error_messages={'invalid': ("This value may co\
-                                ntain only letters, numbers and " "@/./+/-/_ ch\
-                                aracters.")},
-                                widget=forms.TextInput(attrs={'class': 'form-control',
-                                                              'required': 'true',
-                                                              'placeholder': 'Username'}))
+
+    first_name = forms.CharField(label=("First Name"), max_length=30,
+                          widget=forms.TextInput(attrs={'class': 'form-control',
+                                                      'required': 'true',
+                                                      'placeholder': 'First Name'}))
+
+    last_name = forms.CharField(label=("Last Name"), max_length=30,
+                          widget=forms.TextInput(attrs={'class': 'form-control',
+                                                      'required': 'true',
+                                                      'placeholder': 'Last Name'}))
+
+    # username = forms.RegexField(label=("Username"), max_length=30, regex=r"^[\w.@+-]+$",
+    #                             help_text=(""),
+    #                             error_messages={'invalid': ("This value may co\
+    #                             ntain only letters, numbers and " "@/./+/-/_ ch\
+    #                             aracters.")},
+    #                             widget=forms.TextInput(attrs={'class': 'form-control',
+    #                                                           'required': 'true',
+    #                                                           'placeholder': 'Username'}))
 
     email = forms.CharField(label=("Email"), max_length=30,
                             help_text=(""),
@@ -95,8 +117,10 @@ class CustomUserChangeForm(UserChangeForm):
                                    required=False,
                                    widget=forms.TextInput(attrs={'class': 'form-control',
                                                           'placeholder': 'Address2'}))
-    
+    picture = forms.FileField(required=False,)
+
+
     class Meta(UserChangeForm.Meta):
         model = CustomUser
         
-        fields = ('username', 'email', 'roll_no', 'contact', 'addressline1', 'addressline2',)
+        fields = ('first_name', 'last_name', 'email', 'roll_no', 'contact', 'addressline1', 'addressline2', 'picture')

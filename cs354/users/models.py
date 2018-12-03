@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, User
 from django.contrib.auth import get_user_model
 from django.core.validators import RegexValidator
-
+from django.utils.text import slugify
 # Create your models here.
 
 
@@ -12,6 +12,13 @@ class CustomUser(AbstractUser):
     contact = models.CharField(validators=[phone_regex], max_length=10, blank=True) # validators should be a list
     addressline1 = models.TextField()
     addressline2 = models.TextField(blank=True, null=True)
+    picture = models.ImageField(upload_to='pictures/users/', null=True,
+                                blank=True)
+    slug = models.SlugField(unique=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.roll_no)
+        super(CustomUser, self).save(*args, **kwargs)
 
 # # def create_profile(sender, **kwargs  #     if kwargs["created"]:
 # #         user_profile = UserProfile.objects.create(user=kwargs["instance"])
