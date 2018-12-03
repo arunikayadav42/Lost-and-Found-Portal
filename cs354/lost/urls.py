@@ -11,4 +11,4 @@ urlpatterns = [
     path('<int:pk>/item_found', views.item_found, name="item_found"),
     path('<int:pk>/suggested_items', views.Suggested_Items, name="lost_item_suggestions"),
     path('<int:pk>/confirm_item_received', views.item_claimed, name="lost_item_received"),
-] 
+]

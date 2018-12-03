@@ -6,9 +6,9 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('users/', include('users.urls')),
+    path('users/', include('users.urls'), name='users'),
     path('users/', include('django.contrib.auth.urls')),
     path('', include('launch.urls'), name='home'),
-    path('lost/', include('lost.urls')),
-    path('found/', include('found.urls')),
+    path('lost/', include('lost.urls'), name='lost'),
+    path('found/', include('found.urls'), name='found'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

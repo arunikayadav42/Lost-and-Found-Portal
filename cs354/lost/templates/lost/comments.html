@@ -15,7 +15,7 @@
 {{ comments.count }} Comment{{ comments|pluralize }}
 {% for comment in comments %}
   <blockquote class="blockquote">
-    <small>{{ comment.author|capfirst }}</small>
+    <small><a href="{url "users:profile_detail" comment.author.roll_no }>{{comment.author}}</a></small>
     <p class="mb-0">{{ comment.text }}</p>
       <button type="button" name="button" class="reply-btn btn btn-outline-dark btn-sm">Reply</button>
       <font size="1">{{comment.replies.count}} Reply {{ replies|pluralize }}</font>

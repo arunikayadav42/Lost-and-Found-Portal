@@ -16,7 +16,8 @@ from django.db.models import Max
 class LostListView(ListView):
     template_name = "lost/home.html"
     model = Lost
-
+    paginate_by = 2
+    
     def get_queryset(self):
         try:
             a = self.request.GET.get('q')
