@@ -63,7 +63,6 @@ class CustomUserCreationForm(UserCreationForm):
                                    required=False,
                                    widget=forms.TextInput(attrs={'class': 'form-control',
                                                           'placeholder': 'Address2'}))
-    picture = forms.FileField(required=False,)
 
     class Meta(UserCreationForm.Meta):
         model = CustomUser
@@ -117,8 +116,6 @@ class CustomUserChangeForm(UserChangeForm):
                                    required=False,
                                    widget=forms.TextInput(attrs={'class': 'form-control',
                                                           'placeholder': 'Address2'}))
-    picture = forms.FileField(required=False,)
-
 
     class Meta(UserChangeForm.Meta):
         model = CustomUser

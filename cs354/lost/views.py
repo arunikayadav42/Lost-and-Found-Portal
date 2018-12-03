@@ -15,7 +15,7 @@ from django.db.models import Q
 class LostListView(ListView):
     template_name = "lost/home.html"
     model = Lost
-    paginate_by = 1
+    paginate_by = 2
     
     def get_queryset(self):
         try:
@@ -23,7 +23,7 @@ class LostListView(ListView):
         except KeyError:
             a = None
         if a:
-            found_list = Lost.objects.filter(
+            lost_list = Lost.objects.filter(
                 Q(title__icontains=a) |
                 Q(description__icontains=a) |
                 Q(color__icontains=a) |

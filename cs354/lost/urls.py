@@ -8,4 +8,4 @@ urlpatterns = [
     path('create/', LostCreateView.as_view(), name="lost_create"),
     path('<int:pk>/', views.LostDetail, name="lost_detail"),
     path('', LostListView.as_view(), name="lost_list"),
-] 
+]

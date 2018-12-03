@@ -52,7 +52,7 @@
   <div class="form-group col-md-6">
     <label>Profile Picture</label>
     {% if user.picture %}
-        <img src="{{ user.picture }}" readonly>
+        <img src="{{ user.picture.url }}">
     {% endif %}
     
   </div>
