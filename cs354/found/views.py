@@ -14,7 +14,8 @@ from django.db.models import Q
 class FoundListView(ListView):
     model = Found
     template_name = "found/home.html"
-    
+    paginate_by = 2
+
     def get_queryset(self):
         try:
             a = self.request.GET.get('q')
@@ -32,6 +33,7 @@ class FoundListView(ListView):
         else:
             found_list = Found.objects.all()
         return found_list
+
 
 class FoundCreateView(LoginRequiredMixin, CreateView):
     model = Found
