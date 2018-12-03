@@ -52,7 +52,7 @@ class LostCreateView(LoginRequiredMixin, CreateView):
         form.fields['date_item_lost'].widget = DateTimePickerInput()
         return form    
 
-
+        
 class LostUpdateView(LoginRequiredMixin, UpdateView):
     model = Lost
     template_name = "lost/update.html"

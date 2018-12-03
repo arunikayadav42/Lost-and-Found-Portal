@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-    <form actions="" method="post">
+    <form actions="" method="post" enctype="multipart/form-data">
     		{% csrf_token %}
+    		{{ form.media }}
     		{{ form.as_p }}
-    		<input type="submit" value="Submit">
+    		<input type="submit" value="Update">
     	</form>
 {% endblock content %}

@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView, FormView
+from django.views.generic import CreateView, FormView, DetailView
 from django.urls import reverse_lazy
 from .forms import  CustomUserCreationForm, CustomUserChangeForm
-# Create your views here.
+from .models import CustomUser
 
 
 class SignUpView(CreateView):
@@ -14,6 +14,11 @@ class SignUpView(CreateView):
 class UserProfile(FormView):
     template_name = 'users/userprofile.html'
     form_class = CustomUserCreationForm
+
+
+class UserDetailView(DetailView):
+    model = CustomUser
+    template_name = "users/profileview.html"
 
 
 def edit_profile(request):
