@@ -11,7 +11,7 @@ from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.db.models import Q
 from django.db.models import Max
-
+from users.models import CustomUser
 
 class LostListView(ListView):
     template_name = "lost/home.html"
@@ -143,4 +143,3 @@ def item_claimed(request, pk):
     Lost.objects.filter(id=pk).delete()
 
     return HttpResponseRedirect(reverse_lazy("lost_list"))
-

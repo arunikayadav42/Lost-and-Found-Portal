@@ -9,8 +9,8 @@
 #profile-image1 {
     cursor: pointer;
   
-     width: 100px;
-    height: 100px;
+     width: 250px;
+    height: 250px;
   border:2px solid #03b1ce ;}
   .tital{ font-size:16px; font-weight:500;}
    .bot-border{ border-bottom:1px #f8f8f8 solid;  margin:5px 0  5px 0}  
@@ -22,10 +22,10 @@
             <div class="panel panel-default">
                 <div class="panel-heading"> <h4 >User Profile</h4>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body" style="font-size: 19px">
                     <div class="box box-info">
                         <div class="box-body">
-                            <div class="col-sm-6">
+                            <div class="col-sm-12">
                                 {% if customuser.picture %}
                                     <div align="center"> <img alt="Avatar" src="{{ customuser.picture.url }}" id="profile-image1" class="img-circle img-responsive">
                                 {% else %}
@@ -44,29 +44,29 @@
                             </div>
                             <div class="clearfix"></div>
                             <hr style="margin:5px 0 5px 0;">
-                            <div class="col-sm-5 col-xs-6 tital ">First Name:</div>
+                            <div class="col-sm-5 col-xs-6 tital "><b>First Name :</b></div>
                             <div class="col-sm-7 col-xs-6 ">{{ customuser.first_name }}</div>
                             <div class="clearfix"></div>
                             <div class="bot-border"></div>
                             <div class="clearfix"></div>
                             <div class="bot-border"></div>
-                            <div class="col-sm-5 col-xs-6 tital ">Last Name:</div>
+                            <div class="col-sm-5 col-xs-6 tital "><b>Last Name :</b></div>
                             <div class="col-sm-7"> {{customuser.last_name}}</div>
                             <div class="clearfix"></div>
                             <div class="bot-border"></div>
-                            <div class="col-sm-5 col-xs-6 tital ">College ID :</div>
+                            <div class="col-sm-5 col-xs-6 tital "><b>College ID :</b></div>
                             <div class="col-sm-7">{{customuser.roll_no}}</div>
                             <div class="clearfix"></div>
                             <div class="bot-border"></div>
-                            <div class="col-sm-5 col-xs-6 tital ">Address :</div>
+                            <div class="col-sm-5 col-xs-6 tital "><b>Address :</b></div>
                             <div class="col-sm-7">{{ customuser.addressline1}} {{customuser.addressline2}}</div>
                             <div class="clearfix"></div>
                             <div class="bot-border"></div>
-                            <div class="col-sm-5 col-xs-6 tital ">Contact :</div>
+                            <div class="col-sm-5 col-xs-6 tital "><b>Contact :</b></div>
                             <div class="col-sm-7">{{customuser.contact}}</div>
                             <div class="clearfix"></div>
                             <div class="bot-border"></div>
-                            <div class="col-sm-5 col-xs-6 tital ">Email :</div>
+                            <div class="col-sm-5 col-xs-6 tital "><b>Email :</b></div>
                             <div class="col-sm-7">{{customuser.email}}</div>
                             <div class="clearfix"></div>
                             <!-- /.box-body -->
