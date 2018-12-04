@@ -7,5 +7,4 @@ urlpatterns = [
 	path('login/profile/', UserProfile.as_view(), name='userprofile'),
 	path('login/profile/edit/', ProfileUpdateView.as_view(), name='editprofile'),
 	path('profile/<slug:slug>/', UserDetailView.as_view(), name="profile_detail"),
-	
 ]	
