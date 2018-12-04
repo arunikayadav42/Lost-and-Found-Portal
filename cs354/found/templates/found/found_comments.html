@@ -6,7 +6,7 @@
       {% if request.user.is_authenticated %}
         <input type="submit" value="Submit" class="btn btn-outline-success">
       {% else %}
-        <input type="submit" value="Submit" class="btn btn-outline-success" disabled>
+        <input type="submit" value="Login to Comment" class="btn btn-outline-success" disabled>
       {% endif %}
     </form>
   </div>
@@ -34,9 +34,9 @@
         <input type="hidden" name="comment_id" value="{{ comment.id }}">
         {{ comment_form.as_p }}
         {% if request.user.is_authenticated %}
-          <input type="submit" value="Submit" class="btn btn-outline-success">
+          <input type="submit" value="Reply" class="btn btn-outline-success">
         {% else %}
-          <input type="submit" value="Submit" class="btn btn-outline-success" disabled>
+          <input type="submit" value="Login to reply" class="btn btn-outline-success" disabled>
         {% endif %}
       </form>
     </div>
