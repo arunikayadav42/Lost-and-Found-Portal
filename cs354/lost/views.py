@@ -10,6 +10,7 @@ from .forms import ItemCreateForm, ItemEditForm, CommentForm
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.db.models import Q
+from django.db.models import Max
 from users.models import CustomUser
 
 class LostListView(ListView):
@@ -28,11 +29,10 @@ class LostListView(ListView):
                 Q(description__icontains=a) |
                 Q(color__icontains=a) |
                 Q(brand__icontains=a) |
-                Q(location__icontains=a),
-                author=self.request.user
+                Q(location__icontains=a)
             )
         else:
-            lost_list = Lost.objects.all()
+            lost_list = Lost.objects.order_by("-id")
         return lost_list
         
 
@@ -111,3 +111,35 @@ def LostDetail(request, pk):
 
     return render(request, 'lost/detail.html', context)
 
+
+def Suggested_Items(request, pk):
+    lost = get_object_or_404(Lost, pk=pk)
+    q = None
+    for word in lost.title.split():
+        q_aux = Q(title__icontains=word)
+        q = (q_aux | q) if bool(q) else q_aux
+    found = Found.objects.filter(q).filter(claimed_user=None)
+
+    context = {
+            'lost': lost,
+            'found': found,
+        }
+
+    return render(request, 'lost/suggested_items.html', context)
+
+
+def item_found(request, pk): 
+    item = Lost.objects.get(id=pk)
+    if not item.claimed_user:
+        item.item_found = True
+        item.claimed_user = request.user.username
+        item.save()
+
+    return HttpResponseRedirect(reverse_lazy("lost_list")) 
+
+
+def item_claimed(request, pk):
+    item = Lost.objects.get(id=pk)
+    Lost.objects.filter(id=pk).delete()
+
+    return HttpResponseRedirect(reverse_lazy("lost_list"))

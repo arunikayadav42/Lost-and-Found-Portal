@@ -15,35 +15,49 @@
         <div>
       <a href="{% url "found_create" %}" class="btn btn-danger" cellpadding="10px"><span class="glyphicon glyphicon-plus"><b> Register Item</b></span></a>
 </div>
+<hr>
 <div class="table-responsive">
-   <table class="table">
-      <thead>
-         <tr>
-            <th>
-               Following Items Need Help:-
-            </th>
-         </tr>
-      </thead>
-      <tbody>
-            {% for found in object_list %}
-            <tr>
-   <td>
-      <div class="lost-entry">
+  
+            {% for item in object_list %}
+            
+  <ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center" style="padding-top: 0.5px;">
+    <div class="lost-entry">
+
       <h2>
          <a href="{% url "found_detail" found.pk %}">
             {{ found.title }}
          </a>
       </h2>
-      <b>By :<a href="{{found.author.get_profile}}">{{found.author}}</a></b>
+
+
+      <div class="row">
+        <div class="group2 col-sm-6 col-md-6">
+                <span class="glyphicon glyphicon-pencil"></span>{{ item.found_comments.count }} Comments
+                  <span class="glyphicon glyphicon-time"></span> {{ item.date_item_registered }}
+                  {% if item.claimed_user %}
+            <span class="label label-default">Claimed</span>
+        {% endif %}
+        </div>
+        <div class="group1 col-sm-4 col-md-4">
+            
+        </div>
+        <div class="group1 col-sm-2 col-md-2">
+            <span class="glyphicon glyphicon-user"></span>  <a href="#"><b>By : {{item.author}}</b></a>
+        </div>
+    </div>
+      
+
    </div>
-   <div class="date & comments">
-      Comments : {{ found.found_comments.count }} | {{ found.date_item_registered }}
-   </div>
-   </td>
-</tr>
+    
+  </li>
+  
+</ul>
+     
+</div>
+   
 {% endfor %}
          
-      </tbody>
    </table>
 </div>
 
