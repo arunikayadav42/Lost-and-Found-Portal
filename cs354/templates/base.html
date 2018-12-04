@@ -22,12 +22,12 @@
     <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">IIT P Lost & Found</a>
+                <a class="navbar-brand" href="#" style="font-size: 18px;color:white">IIT P Lost & Found</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="{% url "lost_list" %}">Lost</a></li>
-                <li><a href="{% url "found_list" %}">Found</a></li>
+                <li><a href="/" style="font-size: 18px;color:white">Home</a></li>
+                <li><a href="{% url "lost_list" %}" style="font-size: 18px;color:white">Lost</a></li>
+                <li><a href="{% url "found_list" %}" style="font-size: 18px;color:white">Found</a></li>
                 {% if user.is_authenticated %}
                 {% block form %}
                     
@@ -37,11 +37,11 @@
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}
                 
-                <li><a href="{% url "userprofile" %}"><span class="glyphicon glyphicon-user"></span> {{ user.username }}</a></li>
-                <li><a href="{% url "logout" %}"><span class="glyphicon glyphicon-log-in"></span>Log Out</a></li>
+                <li><a href="{% url "userprofile" %}"><span class="glyphicon glyphicon-user" style="font-size: 18px;color:white"></span style="font-size: 18px;color:white"> {{ user.username }}</a></li>
+                <li><a href="{% url "logout" %}"><span class="glyphicon glyphicon-log-in" style="font-size: 18px;color:white"></span style="font-size: 18px;color:white">Log Out</a></li>
                 {% else %}
-                <li><a href="{% url "signup" %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="{% url "login" %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="{% url "signup" %}"><span class="glyphicon glyphicon-user" style="font-size: 18px;color:white; vertical-align: text-bottom;"></span> Sign Up</a></li>
+                <li><a href="{% url "login" %}"><span class="glyphicon glyphicon-log-in" style="font-size: 18px;color:white"></span style="font-size: 18px;color:white"> Login</a></li>
                 {% endif %}
             </ul>
         </div>
