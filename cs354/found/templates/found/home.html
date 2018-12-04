@@ -20,9 +20,9 @@
     {% for item in object_list %}
 <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-top"style="padding-top: 0px; padding-bottom: 7px">
-            <div class="lost-entry" >
+            <div class="found-entry" >
                 <h2>
-         <a href="{% url "lost_detail" item.pk %}">
+         <a href="{% url "found_detail" item.pk %}">
             {{ item.title }}
          </a>
       </h2>

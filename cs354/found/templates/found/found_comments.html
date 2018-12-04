@@ -12,19 +12,19 @@
   </div>
 </div>
 `
-{{ found_comments.count }} Comments
-{% for item in found_comments %}
+{{ comments.count }} Comment{{ comments|pluralize }}
+{% for comment in comments %}
   <blockquote class="blockquote">
-    <div style="font-size: 12px"><a href="{{comment.author.get_profile}}"><b>{{ item.author.first_name|capfirst }} {{ item.author.last_name|capfirst }} [{{ comment.author }}]</b> </a></div>
-    <p class="mb-0">{{ item.text }}</p>
+    <div style="font-size: 12px"><a href="{{comment.author.get_profile}}"><b>{{ comment.author.first_name|capfirst }} {{ comment.author.last_name|capfirst }} [{{ comment.author }}]</b> </a></div>
+    <p class="mb-0">{{ comment.text }}</p>
       <button type="button" name="button" class="reply-btn btn btn-outline-dark btn-sm">Reply</button>
-      <font size="1">{{item.found_replies.count}} Reply {{ replies|pluralize }}</font>
+      <font size="1">{{comment.found_replies.count}} Reply {{ replies|pluralize }}</font>
   </blockquote>
 
   <div class="replied-comments container mt-2 " style="display: none; margin-left: 25px">
-    {% for reply in item.found_replies.all %}
-    <small><a href="{{reply.author.get_profile}}">{{ reply.author.first_name|capfirst }} {{ reply.author.last_name|capfirst }} [{{ comment.author }}]</a></small>
-    <blockquote class="blockquote">
+    {% for reply in comment.found_replies.all %}
+    <div style="font-size: 12px"><a href="{{reply.author.get_profile}}"><b>{{ reply.author.first_name|capfirst }} {{ reply.author.last_name|capfirst }} [{{ reply.author }}]</b> </a></div>
+     <blockquote class="blockquote">
       <p class="mb-0">{{ reply.text }}</p>
     </blockquote>
     {% endfor %}
@@ -42,6 +42,3 @@
     </div>
   </div>
 {% endfor %}
-
-
-
