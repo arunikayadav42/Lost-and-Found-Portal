@@ -35,10 +35,10 @@
             {{ item.title }}
          </a>
       </h2>
-      <b>By : {{item.author}}</b>
+      <b>By : <a href="{{item.author.get_profile}}"> {{item.author}} </a></b>
    </div>
    <div class="date & comments">
-      Comments : {{ item.found_comments.count }} | {{ item.date_item_registered }}
+      Comments : {{ item.comments.count }} | {{ item.date_item_registered }}
    </div>
    </td>
 </tr>

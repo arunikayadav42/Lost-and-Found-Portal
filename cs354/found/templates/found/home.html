@@ -25,19 +25,19 @@
          </tr>
       </thead>
       <tbody>
-            {% for item in object_list %}
+            {% for found in object_list %}
             <tr>
    <td>
       <div class="lost-entry">
       <h2>
-         <a href="{% url "found_detail" item.pk %}">
-            {{ item.title }}
+         <a href="{% url "found_detail" found.pk %}">
+            {{ found.title }}
          </a>
       </h2>
-      <b>By : {{item.author}}</b>
+      <b>By :<a href="{{found.author.get_profile}}">{{found.author}}</a></b>
    </div>
    <div class="date & comments">
-      Comments : {{ item.found_comments.count }} | {{ item.date_item_registered }}
+      Comments : {{ found.found_comments.count }} | {{ found.date_item_registered }}
    </div>
    </td>
 </tr>

@@ -10,7 +10,7 @@ from .forms import ItemCreateForm, ItemEditForm, CommentForm
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.db.models import Q
-
+from users.models import CustomUser
 
 class LostListView(ListView):
     template_name = "lost/home.html"
@@ -110,3 +110,4 @@ def LostDetail(request, pk):
     }
 
     return render(request, 'lost/detail.html', context)
+

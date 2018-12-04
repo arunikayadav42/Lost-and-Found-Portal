@@ -15,7 +15,7 @@
 {{ comments.count }} Comment{{ comments|pluralize }}
 {% for comment in comments %}
   <blockquote class="blockquote">
-    <small>{{ comment.author|capfirst }}</small>
+    <small><a href="{{comment.author.get_profile}}">{{ comment.author|capfirst }}</a></small>
     <p class="mb-0">{{ comment.text }}</p>
       <button type="button" name="button" class="reply-btn btn btn-outline-dark btn-sm">Reply</button>
       <font size="1">{{comment.found_replies.count}} Reply {{ replies|pluralize }}</font>
@@ -23,7 +23,7 @@
 
   <div class="replied-comments container mt-2 " style="display: none; margin-left: 25px">
     {% for reply in comment.found_replies.all %}
-    <small>{{ reply.author|capfirst }}</small>
+    <small><a href="{{reply.author.get_profile}}">{{ reply.author|capfirst }}</a></small>
     <blockquote class="blockquote">
       <p class="mb-0">{{ reply.text }}</p>
     </blockquote>
