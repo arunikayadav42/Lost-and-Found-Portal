@@ -21,6 +21,14 @@ class CustomUser(AbstractUser):
         self.slug = slugify(self.roll_no)
         super(CustomUser, self).save(*args, **kwargs)
 
+<<<<<<< HEAD
+=======
+    def get_profile(self):
+        return reverse("profile_detail", kwargs={'slug': self.slug})
+# def create_profile(sender, **kwargs  #     if kwargs["created"]:
+#         user_profile = UserProfile.objects.create(user=kwargs["instance"])
+
+>>>>>>> Links for comments working
 
 # # post_save.connect(create_profile, sender=get_user_model())
 # from django.db.models.signals import post_save
