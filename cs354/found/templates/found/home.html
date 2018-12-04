@@ -11,46 +11,53 @@
 {% endblock form %}
 {% block content %}
 {% if q %}
-
 {% else %}
 <div>
 <a href="{% url "found_create" %}" class="btn btn-info""><span class="glyphicon glyphicon-plus" style="padding-bottom: 4px; font: monospace;"><b> Register Item</b></span></a></div>
 <hr>
+
 <div class="table-responsive">
-    {% for item in object_list %}
-<ul class="list-group">
-        <li class="list-group-item d-flex justify-content-between align-items-top"style="padding-top: 0px; padding-bottom: 7px">
-            <div class="found-entry" >
-                <h2>
+  
+            {% for item in object_list %}
+            
+  <ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center" style="padding-top: 0.5px;">
+    <div class="lost-entry">
+
+      <h2>
          <a href="{% url "found_detail" item.pk %}">
             {{ item.title }}
          </a>
       </h2>
-                <div class="row" style="padding: 10px">
-                    <div class="group2 col-md-4">
-                        <span class="glyphicon glyphicon-pencil" style="text-indent:center;"></span> {{ item.found_comments.count }} Comments 
-                        {% if item.item_found %}
-                        <span class="label label-default">Found</span>
-                        {% endif %}
-                    </div>
-                    <div class="group1 col-md-6">
-                        <span class="glyphicon glyphicon-time"style="text-indent:center;"></span> {{ item.date_item_registered }}
-                    </div>
-                    <div class="group1 col-md-2">
-                        <span class="glyphicon glyphicon-user" style="padding: 5px; font-size: 10px;"></span><b>By : <a href="{{item.author.get_profile}}"> {{item.author}} </a></b>
-                    </div>
-                </div>
-            </div>
-        </li>
-    </ul>
-    <br>
+
+
+      <div class="row">
+        <div class="group2 col-sm-6 col-md-6">
+                <span class="glyphicon glyphicon-pencil"></span>{{ item.found_comments.count }} Comments
+                  <span class="glyphicon glyphicon-time"></span> {{ item.date_item_registered }}
+                  {% if item.claimed_user %}
+            <span class="label label-default">Claimed</span>
+        {% endif %}
+        </div>
+        <div class="group1 col-sm-4 col-md-4">
+            
+        </div>
+        <div class="group1 col-sm-2 col-md-2">
+            <span class="glyphicon glyphicon-user"></span>  <a href="#"><b>By : {{item.author}}</b></a>
+        </div>
+    </div>    
+  </li>
+  
+</ul>
+     
+</div>
+   
 {% endfor %}
          
    </table>
 </div>
 
 {% endif %}
-
 {% if is_paginated %}
   <ul class="pagination">
     {% if page_obj.has_previous %}
