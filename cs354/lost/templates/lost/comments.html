@@ -22,8 +22,8 @@
   </blockquote>
 
   <div class="replied-comments container mt-2 " style="display: none; margin-left: 25px">
-    {% for reply in comment.found_replies.all %}
-    <small><a href="{{reply.author.get_profile}}">{{ reply.author.first_name|capfirst }} {{ reply.author.last_name|capfirst }} [{{ comment.author }}]</a></small>
+    {% for reply in comment.replies.all %}
+    <small><a href="{{reply.author.get_profile}}">{{ reply.author.first_name|capfirst }} {{ reply.author.last_name|capfirst }} [{{ reply.author }}]</a></small>
     <blockquote class="blockquote">
       <p class="mb-0">{{ reply.text }}</p>
     </blockquote>
