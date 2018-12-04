@@ -16,11 +16,13 @@ Log In
             <form class="form-signin" method="POST">
                 {% csrf_token %}
               <div class="form-label-group">
+                <div class='error'>{{form.errors.username}}</div>
                 <input type="text" id="inputusername" class="form-control" placeholder="Email address" name="username" required autofocus>
-                <label for="inputusername">Email address</label>
+                <label for="inputusername">Username</label>
               </div>
 
               <div class="form-label-group">
+                <div class='error'>{{form.errors.password}}</div>
                 <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
                 <label for="inputPassword">Password</label>
               </div>
@@ -136,7 +138,7 @@ body {
 .form-label-group input:not(:placeholder-shown)~label {
   padding-top: calc(var(--input-padding-y) / 3);
   padding-bottom: calc(var(--input-padding-y) / 3);
-  font-size: 12px;
+  font-size: 10px;
   color: #777;
 }
 

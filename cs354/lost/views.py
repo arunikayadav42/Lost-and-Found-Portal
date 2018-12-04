@@ -12,10 +12,7 @@ from django.http import HttpResponseRedirect
 from django.db.models import Q
 from django.db.models import Max
 from users.models import CustomUser
-<<<<<<< HEAD
-=======
 
->>>>>>> Links for comments working
 
 class LostListView(ListView):
     template_name = "lost/home.html"
