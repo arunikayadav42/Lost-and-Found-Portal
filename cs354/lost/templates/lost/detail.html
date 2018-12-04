@@ -5,17 +5,17 @@
 <div class="card-header">
 <ul class="nav nav-tabs card-header-tabs">
 <li class="nav-item">
-<a class="nav-link" href="{% url "lost_detail" pk=lost.pk %} ">Item Details</a>
+<a class="nav-link" href="{% url "lost_detail" pk=lost.pk %}" style="font-size: 18px"><i class="material-icons" style="vertical-align: text-bottom">&#xe0da;</i> Item Details</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="{% url "lost_item_suggestions" pk=lost.pk %}">Suggestions</a>
+<a class="nav-link" href="{% url "lost_item_suggestions" pk=lost.pk %}" style="font-size: 18px"><i class="material-icons" style="vertical-align: text-bottom">&#xe065</i> Suggestions</a>
 </li>
 </ul>
 </div>
 <div class="card-header">
         <span class="font-weight-bold"><h1>{{ lost.title }}</h1></span>
 
-        <span class="text-muted">by <a href=" {{lost.author.get_profile}}">{{ lost.author }}</a> | {{ lost.date_item_lost }}</span>
+        <span class="text-muted">by <a href=" {{ lost.author.get_profile }}">{{ lost.author }}</a> | {{ lost.date_item_lost }}</span>
     </div>
     <hr>
     {% if lost.color or lost.brand or lost.description  or lost.location %}

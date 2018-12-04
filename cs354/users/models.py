@@ -21,6 +21,8 @@ class CustomUser(AbstractUser):
         self.slug = slugify(self.roll_no)
         super(CustomUser, self).save(*args, **kwargs)
 
+    def get_profile(self):
+        return reverse("profile_detail", kwargs={'slug': self.slug})
 
 # # post_save.connect(create_profile, sender=get_user_model())
 # from django.db.models.signals import post_save
