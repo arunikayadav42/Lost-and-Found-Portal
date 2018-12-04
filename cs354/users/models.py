@@ -23,6 +23,9 @@ class CustomUser(AbstractUser):
 
     def get_profile(self):
         return reverse("profile_detail", kwargs={'slug': self.slug})
+# def create_profile(sender, **kwargs  #     if kwargs["created"]:
+#         user_profile = UserProfile.objects.create(user=kwargs["instance"])
+
 
 # # post_save.connect(create_profile, sender=get_user_model())
 # from django.db.models.signals import post_save
