@@ -26,9 +26,9 @@ Log In
                  -->                <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
                 <label for="inputPassword">Password</label>
               </div>
-                              {% if form.errors %}
-    <p style="color: red;">Username or Password Incorrect</p>
-{% endif %}
+              {% if form.errors %}
+                <p style="color: red;">Username or Password Incorrect</p>
+              {% endif %}
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
               <hr class="my-4">
               <a class="btn btn-lg btn-block btn-google text-uppercase" href="{% url "signup" %}"> Sign Up</a>
