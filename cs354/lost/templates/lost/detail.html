@@ -1,12 +1,20 @@
-.{% extends "base.html" %}
+{% extends "base.html" %}
 {% block title %}{{lost.title}}{% endblock title %}
 {% block content %}
-
 <div class="card">
-    <div class="container"></div>
-    <div class="card-header">
+<div class="card-header">
+<ul class="nav nav-tabs card-header-tabs">
+<li class="nav-item">
+<a class="nav-link" href="{% url "lost_detail" pk=lost.pk %} ">Item Details</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="{% url "lost_item_suggestions" pk=lost.pk %}">Suggestions</a>
+</li>
+</ul>
+</div>
+<div class="card-header">
         <span class="font-weight-bold"><h1>{{ lost.title }}</h1></span>
-        <span class="text-muted">by {{ lost.author }} | {{ lost.date_item_lost }}</span>
+        <span class="text-muted">by {{ lost.author }} | {{ lost.date_item_lost }} in {{ lost.location }}</span>
     </div>
     <hr>
     {% if lost.color or lost.brand or lost.description %}
@@ -32,15 +40,42 @@
     <div class="card-body">
         {% if lost.picture %}    <img src="{{ lost.picture.url }}" alt="Avatar" height="100">{% endif %}
     </div>
+     {% if request.user.is_authenticated %}
+         {% if lost.author != request.user and not lost.item_found %}
+         <br>
+        <form action="{% url "item_found" pk=lost.pk %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-default"> Found Item?</button>
+        </form>         
+       
+        {% elif lost.item_found and lost.claimed_user %}
+            <div class="alert info alert-dismissible block" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            Item already found by <a href="">{{ lost.claimed_user }}</a>
+        </div>
+        
+
+     {% endif %}
+     {% endif %}
+     {% if request.user == lost.author and lost.item_found %}
+            <br>
+        <form action="{% url "lost_item_received" pk=lost.pk %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-default" onclick="return confirm('Are you sure? The item will be deleted from the database')"> Got the Item?</button>
+        </form>
+    {% endif %}
     {% if lost.author == request.user %}
         <div class="card-footer text-center text-muted">
-        <a href="{% url "lost_edit" lost.pk %}" class="btn btn-info">Edit</a> | <a href="{% url "lost_delete" lost.pk %}" class="btn btn-danger"> Delete</a>
+        <a href="{% url "lost_edit" lost.pk %}" class="btn btn-info"> Edit </a> | <a href="{% url "lost_delete" lost.pk %}" class="btn btn-danger"> Delete</a>
     </div>
     {% endif %}
+</article>
 <hr>
 
  <div class="main-comment-section">
     {% include 'lost/comments.html' %}
 </div>
-
+</div>
 {% endblock content %}

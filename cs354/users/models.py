@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, User
 from django.contrib.auth import get_user_model
-from django.db.models.signals import post_save
 from django.core.validators import RegexValidator
 
 # Create your models here.
@@ -14,8 +13,9 @@ class CustomUser(AbstractUser):
     addressline1 = models.TextField()
     addressline2 = models.TextField(blank=True, null=True)
 
-# def create_profile(sender, **kwargs  #     if kwargs["created"]:
-#         user_profile = UserProfile.objects.create(user=kwargs["instance"])
+# # def create_profile(sender, **kwargs  #     if kwargs["created"]:
+# #         user_profile = UserProfile.objects.create(user=kwargs["instance"])
 
 
-# post_save.connect(create_profile, sender=get_user_model())
+# # post_save.connect(create_profile, sender=get_user_model())
+# from django.db.models.signals import post_save

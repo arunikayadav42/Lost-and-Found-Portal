@@ -32,7 +32,7 @@ class ItemCreateForm(forms.ModelForm):
 
     class Meta:
         model = Lost
-        exclude = ('found_status', 'date_item_registered', 'author')
+        exclude = ('date_item_registered', 'author', 'claimed_user', 'item_found')
 
 
 class ItemEditForm(forms.ModelForm):

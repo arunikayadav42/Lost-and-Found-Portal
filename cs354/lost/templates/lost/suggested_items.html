@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url "lost_detail" pk=lost.pk %} ">Item Details</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="{% url "lost_item_suggestions" pk=lost.pk %}">Suggestions</a>
+        </li>
+    </ul>
+</div>
+{% if q %}
+{% else %}
+<br>
+<div class="table-responsive">
+    {% if not found %}
+    No suggestions for you
+        {% else %}
+            {% for item in found %}
+          <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-top" style="padding-top: 0.5px;">
+            <div class="lost-entry">
+                <h2>
+         <a href="{% url "found_detail" item.pk %}">
+            {{ item.title }}
+         </a>
+      </h2>
+                <div class="row">
+                    <div class="group2 col-sm-6 col-md-6">
+                        <span class="glyphicon glyphicon-pencil"></span> {{ item.comments.count }} Comments
+                        <span class="glyphicon glyphicon-time"></span> {{ item.date_item_registered }}
+                        {% if item.item_found %}
+                        <span class="label label-default">Found</span>
+                        {% endif %}
+                    </div>
+                    <div class="group1 col-sm-4 col-md-4">
+                    </div>
+                    <div class="group1 col-sm-2 col-md-2">
+                        <span class="glyphicon glyphicon-user"></span> <a href="#"><b>By : {{item.author}}</b></a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <br>
+    {% endfor %}
+    
+    {% endif %}
+</div>
+{% endif %}
+{% endblock content %}

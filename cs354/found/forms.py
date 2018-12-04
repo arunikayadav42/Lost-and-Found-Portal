@@ -34,7 +34,7 @@ class ItemCreateForm(forms.ModelForm):
 
     class Meta:
         model = Found
-        exclude = ('found_status', 'date_item_registered', 'author')
+        exclude = ('found_status', 'date_item_registered', 'author', 'claimed_user', 'approved')
 
 
 class ItemEditForm(forms.ModelForm):
@@ -67,7 +67,7 @@ class ItemEditForm(forms.ModelForm):
 
     class Meta:
         model = Found
-        exclude = ('found_status', 'date_item_registered', 'author')
+        exclude = ('found_status', 'date_item_registered', 'author', 'claimed_user', 'approved')
 
 
 class CommentForm(forms.ModelForm):

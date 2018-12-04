@@ -4,11 +4,13 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from bootstrap_datepicker_plus import DateTimePickerInput
 from django.urls import reverse_lazy
 from .models import Found, Comment
+from lost.models import Lost
 from django.core.exceptions import PermissionDenied
 from .forms import ItemCreateForm, ItemEditForm, CommentForm
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.db.models import Q
+from django.contrib import messages
 
 
 class FoundListView(ListView):
@@ -26,12 +28,13 @@ class FoundListView(ListView):
                 Q(description__icontains=a) |
                 Q(color__icontains=a) |
                 Q(brand__icontains=a) |
-                Q(location__icontains=a),
-                author=self.request.user
+                Q(location__icontains=a)
             )
         else:
-            found_list = Found.objects.all()
+            found_list = Found.objects.filter(approved=False).order_by("-id")
+            Found.objects.filter(approved=True).delete()
         return found_list
+
 
 class FoundCreateView(LoginRequiredMixin, CreateView):
     model = Found
@@ -94,7 +97,8 @@ def FoundDetail(request, pk):
             comment_qs = None
             if reply_id:
                 comment_qs = Comment.objects.get(id=reply_id)
-            comment = Comment.objects.create(found=found, author=request.user, text=text, reply=comment_qs)
+            comment = Comment.objects.create(found=found, author=request.user, 
+                                             text=text, reply=comment_qs)
             comment.save()
             return HttpResponseRedirect(found.get_absolute_url())
     else:
@@ -107,3 +111,38 @@ def FoundDetail(request, pk):
     }
 
     return render(request, 'found/detail.html', context)
+
+
+def Suggested_Items(request, pk):
+    found = get_object_or_404(Found, pk=pk)
+    q = None
+    for word in found.title.split():
+        q_aux = Q(title__icontains=word)
+        q = (q_aux | q) if bool(q) else q_aux
+    lost = Lost.objects.filter(q)
+
+    context = {
+            'lost': lost,
+            'found': found,
+        }
+
+    return render(request, 'found/suggested_items.html', context)
+
+
+def claim_the_item(request, pk):
+    item = get_object_or_404(Found, id=pk)
+    if not item.claimed_user: 
+        item.claimed_user = request.user.username
+        item.save()
+    else:
+        messages.info(request, 'Item Already Claimed', extra_tags='alert') 
+        return HttpResponseRedirect(item.get_absolute_url())
+    return HttpResponseRedirect(reverse_lazy("found_list"))
+
+
+def claim_approved(request, pk):
+    item = get_object_or_404(Found, id=pk)
+    if item.claimed_user:
+        item.approved = True
+        item.save()
+    return HttpResponseRedirect(reverse_lazy("found_list"))
