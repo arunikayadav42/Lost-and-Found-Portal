@@ -4,7 +4,7 @@
 <div class="card">
     <div class="card-header">
         <span class="font-weight-bold"><h1>{{ found.title }}</h1></span>
-        <span class="text-muted">by <a href="{{found.author.get_profile}}">{{ found.author }}</a> | {{ found.date_item_found }}</span>
+        <span class="text-muted">by <a href="{{found.author.get_profile}}">{{ found.author.first_name|capfirst }} {{ found.author.last_name|capfirst }} [{{ found.author }}]</a> | {{ found.date_item_found }}</span>
     </div>
     <hr>
     <div class="card-body">
