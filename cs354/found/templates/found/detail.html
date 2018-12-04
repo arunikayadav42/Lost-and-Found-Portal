@@ -65,7 +65,7 @@
         {% endif %}
         {% if found.author == request.user %}
         <div class="card-footer text-center text-muted">
-            <a href="{% url "found_edit" found.pk %}" class="btn btn-info">Edit</a> | <a href="{% url "found_delete" found.pk %}" class="btn btn-danger"> Delete</a>
+            <a href="{% url "found_edit" found.pk %}"><i class="material-icons" style="vertical-align: text-bottom; color:gray; font-size: 20px">&#xe3c9;</i> <span style="font-size: 20px; color:black">Edit </span></a><span style="font-size: 20px; color: black">|</span> <a href="{% url "found_delete" found.pk %}"><i class="material-icons" style="vertical-align: text-bottom; color: gray; font-size: 22px">&#xe872;</i> <span style="font-size: 20px; color:black">Delete </span></a>
         </div>
         {% if found.claimed_user %}
         <div>
@@ -82,4 +82,8 @@
         <div class="main-comment-section">
             {% include 'found/comments.html' %}
         </div>
+<<<<<<< HEAD
         {% endblock content %}
+=======
+        {% endblock content %}
+>>>>>>> fixed
