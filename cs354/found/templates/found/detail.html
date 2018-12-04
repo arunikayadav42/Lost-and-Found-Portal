@@ -28,7 +28,7 @@
             
             {% if found.brand %}
             <hr>
-                <span><h4><b>Brand / Company :</b></h4></span> <span >  <pre style="font-size: 14px">{{ found.brand}}</pre></span>  
+                <span><h4><b>Brand / Company :</b></h4></span> <span >  <pre style="font-size: 14px font-weight:bold;">{{ found.brand}}</pre></span>  
             {% endif %}
             
             {% if  found.color %}
@@ -59,24 +59,24 @@
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
-            Item already claimed by <a href="">{{ found.claimed_user }}</a>
+            <div style="font-size: 18px; font-weight:bold;">Item already claimed by <a href="{{found.claimed_user.get_profile}}">{{ found.claimed_user }}</a></div>
         </div>
         {% endif %}
         {% endif %}
         {% if found.author == request.user %}
-        <div class="card-footer text-center text-muted">
-            <a href="{% url "found_edit" found.pk %}"><i class="material-icons" style="vertical-align: text-bottom; color:gray; font-size: 20px">&#xe3c9;</i> <span style="font-size: 20px; color:black">Edit </span></a><span style="font-size: 20px; color: black">|</span> <a href="{% url "found_delete" found.pk %}"><i class="material-icons" style="vertical-align: text-bottom; color: gray; font-size: 22px">&#xe872;</i> <span style="font-size: 20px; color:black">Delete </span></a>
-        </div>
         {% if found.claimed_user %}
         <div>
-            <p>Do you want to approve the article? 
+            <p style="font-weight:bold">Do you want to approve the article claim by {{found.claimed_user}}? 
             <form action="{% url "claim_approved" pk=found.pk %}" method="POST">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-default" onclick="return confirm('Are you sure? The item will be deleted from the database')">Approve</button>
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure? The item will be deleted from the database')">Approve</button>
             </form>
             </p>
         </div>
         {% endif %}
+        <div class="card-footer text-center text-muted">
+            <a href="{% url "found_edit" found.pk %}"><i class="material-icons" style="vertical-align: text-bottom; color:gray; font-size: 20px">&#xe3c9;</i> <span style="font-size: 20px; color:black">Edit </span></a><span style="font-size: 20px; color: black">|</span> <a href="{% url "found_delete" found.pk %}"><i class="material-icons" style="vertical-align: text-bottom; color: gray; font-size: 22px">&#xe872;</i> <span style="font-size: 20px; color:black">Delete </span></a>
+        </div>
         {% endif %}
         <hr>
         <div class="main-comment-section">
