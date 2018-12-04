@@ -1,0 +1,89 @@
+9fd4e08 HEAD@{0}: commit: fixed
+8fd167c HEAD@{1}: rebase: merged all
+2457733 HEAD@{2}: rebase: checkout refs/remotes/origin/master
+7845ee8 HEAD@{3}: commit: reset trial 1
+d843d42 HEAD@{4}: reset: moving to d843d42
+daa71ac HEAD@{5}: commit: reset trial 1
+d843d42 HEAD@{6}: reset: moving to d843d42
+3a2ddf6 HEAD@{7}: reset: moving to 3a2ddf6
+3a2ddf6 HEAD@{8}: rebase finished: returning to refs/heads/master
+3a2ddf6 HEAD@{9}: rebase: Minor frontend changes like material icons
+2457733 HEAD@{10}: rebase: checkout refs/remotes/origin/master
+20a2a16 HEAD@{11}: commit: Minor frontend changes like material icons
+2457733 HEAD@{12}: rebase: updating HEAD
+2457733 HEAD@{13}: rebase: aborting
+d843d42 HEAD@{14}: commit: Minor frontend changes like material icons
+2ccf74a HEAD@{15}: commit: merged all
+e2c90cb HEAD@{16}: commit: merged all
+89dc186 HEAD@{17}: rebase: checkout refs/remotes/origin/master
+2457733 HEAD@{18}: checkout: moving from Profile_completed to master
+2457733 HEAD@{19}: checkout: moving from master to Profile_completed
+2457733 HEAD@{20}: merge Profile_completed: Fast-forward
+8021d04 HEAD@{21}: checkout: moving from Profile_completed to master
+2457733 HEAD@{22}: rebase finished: returning to refs/heads/Profile_completed
+2457733 HEAD@{23}: rebase: Detail view minor layout updates
+5485622 HEAD@{24}: rebase: checkout refs/remotes/origin/Profile_completed
+31375e7 HEAD@{25}: commit: Detail view minor layout updates
+5485622 HEAD@{26}: commit: Profile fonts changed minor
+8021d04 HEAD@{27}: checkout: moving from master to Profile_completed
+8021d04 HEAD@{28}: checkout: moving from master to master
+8021d04 HEAD@{29}: checkout: moving from master to master
+8021d04 HEAD@{30}: rebase finished: returning to refs/heads/master
+8021d04 HEAD@{31}: rebase: Links for comments working
+d6d7c7d HEAD@{32}: rebase: checkout refs/remotes/origin/master
+9c1b55c HEAD@{33}: commit: Links for comments working
+d6d7c7d HEAD@{34}: commit: Profile View Updated
+750c333 HEAD@{35}: commit: pagination fixed
+fa85209 HEAD@{36}: commit: fixed login
+b85430f HEAD@{37}: merge Better_profile: Merge made by the 'recursive' strategy.
+656a6b5 HEAD@{38}: rebase finished: returning to refs/heads/master
+656a6b5 HEAD@{39}: rebase: checkout refs/remotes/origin/master
+ed0d055 HEAD@{40}: checkout: moving from master to master
+ed0d055 HEAD@{41}: checkout: moving from Better_profile to master
+eaf842c HEAD@{42}: commit: Check profile now using roll number slug
+ed0d055 HEAD@{43}: checkout: moving from master to Better_profile
+ed0d055 HEAD@{44}: commit: Fonts updated
+f80442f HEAD@{45}: checkout: moving from master to master
+f80442f HEAD@{46}: checkout: moving from master to master
+f80442f HEAD@{47}: checkout: moving from master to master
+f80442f HEAD@{48}: rebase finished: returning to refs/heads/master
+f80442f HEAD@{49}: rebase: checkout refs/remotes/origin/master
+f80442f HEAD@{50}: rebase finished: returning to refs/heads/master
+f80442f HEAD@{51}: rebase: checkout origin
+50a00e9 HEAD@{52}: checkout: moving from master to master
+50a00e9 HEAD@{53}: checkout: moving from e714dc4d20d6de3e49844fcacad80dfb71e98474 to master
+e714dc4 HEAD@{54}: commit: Comments error
+ce193cc HEAD@{55}: commit: Fixed Found comments and detail view
+11279f1 HEAD@{56}: rebase: checkout refs/remotes/origin/master
+50a00e9 HEAD@{57}: commit: Fixed Found comments and detail view
+08b981b HEAD@{58}: commit: some changes rollback
+5c3ff48 HEAD@{59}: checkout: moving from master to master
+5c3ff48 HEAD@{60}: commit: Better styles in detail view
+102530a HEAD@{61}: commit: Better styles in detail view
+6ad155c HEAD@{62}: commit: Lost and found working
+f945a25 HEAD@{63}: commit (merge): successfull with comments
+6ca915a HEAD@{64}: rebase finished: returning to refs/heads/master
+6ca915a HEAD@{65}: rebase: checkout origin
+4230b3f HEAD@{66}: checkout: moving from Comments_working to master
+45b03f4 HEAD@{67}: commit: cleaned code
+c2d303c HEAD@{68}: commit: Nested comments are working now
+a71ddd0 HEAD@{69}: checkout: moving from Building_Comments to Comments_working
+a71ddd0 HEAD@{70}: commit: FOr you
+c644506 HEAD@{71}: checkout: moving from c644506569266845e50657c45dfdb512749a3d72 to Building_Comments
+c644506 HEAD@{72}: checkout: moving from Before_Comments to c644506569
+346c9e7 HEAD@{73}: commit: Rolling back
+24e9238 HEAD@{74}: checkout: moving from Authentication_success to Before_Comments
+24e9238 HEAD@{75}: commit: Triggers added
+a8036b5 HEAD@{76}: checkout: moving from Threaded_comments_fresh to Authentication_success
+e526cc1 HEAD@{77}: commit: Some small changes
+c644506 HEAD@{78}: checkout: moving from Login_branch to Threaded_comments_fresh
+c644506 HEAD@{79}: checkout: moving from Threaded_comments_fresh to Login_branch
+c644506 HEAD@{80}: checkout: moving from Login_branch to Threaded_comments_fresh
+c644506 HEAD@{81}: checkout: moving from Authentication_success to Login_branch
+a8036b5 HEAD@{82}: checkout: moving from Comment_CustomModel to Authentication_success
+570a049 HEAD@{83}: commit: Comments with custom user model
+a8036b5 HEAD@{84}: checkout: moving from Authentication_success to Comment_CustomModel
+a8036b5 HEAD@{85}: checkout: moving from master to Authentication_success
+4230b3f HEAD@{86}: rebase finished: returning to refs/heads/master
+4230b3f HEAD@{87}: rebase: checkout refs/remotes/origin/master
+4230b3f HEAD@{88}: clone: from git@github.com:arunikayadav42/CS354.git
