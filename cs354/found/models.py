@@ -15,6 +15,9 @@ class Found(models.Model):
     date_item_registered = models.DateTimeField(auto_now_add=True)
     picture = models.ImageField(upload_to='pictures/%Y/%m/%d/', null=True,
                                 blank=True)
+    claimed_user = models.CharField(blank=True, null=True, max_length=20)
+    approved = models.BooleanField(default=False)
+
     def __str__(self):
         return self.title
 

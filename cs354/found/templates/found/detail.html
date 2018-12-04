@@ -1,12 +1,25 @@
 {% extends "base.html" %}
+
 {% block title %}{{found.title}}{% endblock title %}
 {% block content %}
+<div class="card">
+<div class="card-header">
+<ul class="nav nav-tabs card-header-tabs">
+<li class="nav-item">
+<a class="nav-link" href="{% url "found_detail" pk=found.pk %} ">Item Details</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="{% url "found_item_suggestions" pk=found.pk %}">Suggestions</a>
+</li>
+</ul>
+</div>
 <div class="card">
     <div class="card-header">
         <span class="font-weight-bold"><h1>{{ found.title }}</h1></span>
         <span class="text-muted">by {{ found.author }} | {{ found.date_item_found }}</span>
     </div>
     <hr>
+    {% if found.color or found.brand or found.description %}
     <div class="card-body">
         <div class="panel-body">
             {% if found.location %}
@@ -20,26 +33,50 @@
             {% if  found.color %}
                 <span><h4><b>Color :</b></h4></span> <span >  <pre style="font-size: 14px">{{ found.color}}</pre></span>            
             {% endif %}
-            
             <hr>
             {% if found.description %}
                 <span><h4><b>Additional Description :</b></h4></span><span > <pre style="font-size: 14px">{{ found.description}}</pre></span>
             {% endif %}
-            
         </div>
     </div>
+    {% endif %}
     <div class="card-body">
         {% if found.picture %}<img src="{{ found.picture.url }}" height="100">{% endif %}
     </div>
-    {% if found.author == request.user %}
+        {% if request.user.is_authenticated %}
+        {% if found.author != request.user and not found.claimed_user %}
+        <br>
+        <form action="{% url "item_claimed" pk=found.pk %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-default">Claim</button>
+        </form>         
+        
+        {% elif found.claimed_user %}
+        <div class="alert info alert-dismissible block" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            Item already claimed by <a href="">{{ found.claimed_user }}</a>
+        </div>
+        {% endif %}
+        {% endif %}
+        {% if found.author == request.user %}
         <div class="card-footer text-center text-muted">
-        <a href="{% url "found_edit" found.pk %}" class="btn btn-info">Edit</a> | <a href="{% url "found_delete" found.pk %}" class="btn btn-danger"> Delete</a>
-    </div>
-    {% endif %}
-<hr>
-
- <div class="main-comment-section">
-    {% include 'found/comments.html' %}
-</div>
-
-{% endblock content %}
+            <a href="{% url "found_edit" found.pk %}" class="btn btn-info">Edit</a> | <a href="{% url "found_delete" found.pk %}" class="btn btn-danger"> Delete</a>
+        </div>
+        {% if found.claimed_user %}
+        <div>
+            <p>Do you want to approve the article? 
+            <form action="{% url "claim_approved" pk=found.pk %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-default" onclick="return confirm('Are you sure? The item will be deleted from the database')">Approve</button>
+            </form>
+            </p>
+        </div>
+        {% endif %}
+        {% endif %}
+        <hr>
+        <div class="main-comment-section">
+            {% include 'found/comments.html' %}
+        </div>
+        {% endblock content %}

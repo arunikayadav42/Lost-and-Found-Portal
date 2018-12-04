@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 from django.contrib.auth import get_user_model
+from django.db.models.signals import post_save
 
 
 class Lost(models.Model):
@@ -15,6 +16,8 @@ class Lost(models.Model):
     date_item_registered = models.DateTimeField(auto_now_add=True)
     picture = models.ImageField(upload_to='pictures/%Y/%m/%d/', null=True,
                                 blank=True)
+    item_found = models.BooleanField(default=False)
+    claimed_user = models.TextField(null=True)
     # NF means not found
 
     def __str__(self):
@@ -22,6 +25,12 @@ class Lost(models.Model):
 
     def get_absolute_url(self):
         return reverse('lost_detail', args=[str(self.pk)])
+
+    # def create_profile(sender, **kwargs  #     if kwargs["created"]:
+#         user_profile = UserProfile.objects.create(user=kwargs["instance"])
+
+
+#   post_save.connect(create_profile, sender=get_user_model())
 
 
 class Comment(models.Model):
