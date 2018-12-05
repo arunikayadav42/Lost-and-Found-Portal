@@ -54,10 +54,10 @@
    
 {% endfor %}
          
-   </table>
 </div>
 
 {% endif %}
+
 {% if is_paginated %}
   <ul class="pagination">
     {% if page_obj.has_previous %}
@@ -79,5 +79,4 @@
     {% endif %}
   </ul>
 {% endif %}
-
 {% endblock content %}
