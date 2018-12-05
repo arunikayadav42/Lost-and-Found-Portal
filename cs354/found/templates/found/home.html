@@ -13,11 +13,11 @@
 {% if q %}
 {% else %}
 <div>
-<a href="{% url "found_create" %}" class="btn btn-info""><span class="glyphicon glyphicon-plus" style="padding-bottom: 4px; font: monospace;"><b> Register Item</b></span></a></div>
+<a href="{% url "found_create" %}" class="btn btn-info""><span class="glyphicon glyphicon-plus" style="padding-bottom: 4px; font: monospace;"><b> Register Item</b></span></a>
+</div>
 <hr>
 
 <div class="table-responsive">
-  
             {% for item in object_list %}
             
   <ul class="list-group">
@@ -29,8 +29,6 @@
             {{ item.title }}
          </a>
       </h2>
-
-
       <div class="row">
         <div class="group2 col-sm-6 col-md-6">
                 <span class="glyphicon glyphicon-pencil"></span>{{ item.found_comments.count }} Comments
@@ -45,16 +43,16 @@
         <div class="group1 col-sm-2 col-md-2">
             <span class="glyphicon glyphicon-user"></span>  <a href="{{item.author.get_profile}}"><b>By : {{item.author}}</b></a>
         </div>
-    </div>    
+    </div>  
+    </div>  
   </li>
   
-</ul>
-     
+</ul>  
+<br>
+{% endfor %}    
+
 </div>
-   
-{% endfor %}
-         
-</div>
+
 
 {% endif %}
 

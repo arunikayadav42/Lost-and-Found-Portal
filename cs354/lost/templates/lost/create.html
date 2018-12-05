@@ -4,7 +4,7 @@
     {% csrf_token %}
     {{ form.media }}
     {{ form.as_p }}
-    <input type="submit" name="Submit">
+    <button type="submit" class="btn btn-info" style="color:white;">Submit</button>
         <a href="{% url "launch_home" %}" class="btn btn-danger">Cancel</a>
 </form>
 {% endblock content %}
