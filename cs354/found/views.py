@@ -16,7 +16,7 @@ from django.contrib import messages
 class FoundListView(ListView):
     model = Found
     template_name = "found/home.html"
-    paginate_by = 2
+    paginate_by = 5
 
     def get_queryset(self):
         try:

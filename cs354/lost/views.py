@@ -17,7 +17,7 @@ from users.models import CustomUser
 class LostListView(ListView):
     template_name = "lost/home.html"
     model = Lost
-    paginate_by = 2
+    paginate_by = 5
     
     def get_queryset(self):
         try:
