@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 from django.contrib.messages import constants as message_constants
+import django_heroku
+
 
 MESSAGE_LEVEL = 20  #for informational messages
 
@@ -144,3 +146,4 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'# new
 # EMAIL_HOST_PASSWORD = 'sendgrid_password'
 # EMAIL_PORT =
 # EMAIL_USE_TLS = True
+django_heroku.settings(locals())
